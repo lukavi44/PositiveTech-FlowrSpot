@@ -1,0 +1,66 @@
+.flower {
+  display: flex;
+  position: relative;
+  text-align: center;
+  height: 350px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #0c0c0c, #131212);
+    opacity: 0.5;
+  }
+  img {
+    width: 290px;
+    height: 100%;
+    border-radius: 3px;
+  }
+  h5 {
+    position: absolute;
+    height: 15px;
+    left: 0%;
+    right: 0%;
+    bottom: calc(20px + 15% + 10%);
+
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 15px;
+    text-align: center;
+    color: #ffffff;
+  }
+  p {
+    position: absolute;
+    height: 12px;
+    left: 3.65%;
+    right: 4.38%;
+    bottom: calc(20px + 15%);
+
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 12px;
+    text-align: center;
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+  }
+  .btn {
+    position: absolute;
+    bottom: 20px;
+    right: 33%;
+
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #ffffff;
+    &:hover {
+      background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+      box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    }
+  }
+}
