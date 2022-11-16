@@ -50,11 +50,11 @@
       .mat-dialog-actions {
         width: 100%;
         button {
-          background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
           box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
           border-radius: 3px;
           width: 100%;
           padding: 20px;
+          margin-top: 20px;
           font-family: "Ubuntu";
           font-style: normal;
           font-weight: 500;
@@ -63,6 +63,9 @@
           text-align: center;
           color: #fff;
         }
+        button[disabled] {
+          background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+        }
       }
     }
   }
@@ -70,7 +73,11 @@
 ::ng-deep .mat-form-field-underline {
   display: none;
 }
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  display: none !important;
-  height: 14px;
+
+::ng-deep button:not(:disabled) {
+  background: #eb9084;
+  border: none;
+  &:hover {
+    scale: 1.05;
+  }
 }

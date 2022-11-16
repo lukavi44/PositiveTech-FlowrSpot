@@ -22,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    MatIconModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatDialogModule,
