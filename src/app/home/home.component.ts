@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Flower } from '../model/flower.model';
-import { FlowerService } from '../services/flower.service';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +10,11 @@ import { FlowerService } from '../services/flower.service';
 export class HomeComponent implements OnInit {
   flowers: Flower[] = [];
 
-  constructor(private flowerService: FlowerService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    // this.getFlowers();
-  }
-  // getFlowers() {
-  //   this.flowerService.getFlowers().subscribe({
-  //     next: (data: Flower[]) => {
-  //       console.log(data);
-  //       this.flowers = data;
-  //     },
-  //     error: (err: any) => {
-  //       console.log(err);
-  //     },
-  //   });
+  ngOnInit(): void {}
+
+  // ngAfterViewInit() {
+  //   this.dialog.open(LoginComponent);
   // }
 }

@@ -10,7 +10,7 @@
   width: 100%;
   background: #ffffff;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
-  padding: 28px;
+  padding: 28px 0 28px 20px;
   font-size: $header_fontSize;
   .logo {
     display: flex;
@@ -48,12 +48,12 @@
       font-weight: 500;
       line-height: 14px;
       color: #949ea0;
+      // text-decoration: none;
       &:nth-child(4) {
         color: #df9186;
       }
       @include tablet {
         margin-top: 2em;
-        // border-bottom: 1px solid #949ea0;
         text-align: center;
         &:last-child {
           border-bottom: none;
