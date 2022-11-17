@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, shareReplay, tap } from 'rxjs';
-import { User, UserLogin } from '../model/user.model';
+import {
+  RegisterResponse,
+  User,
+  UserLogin,
+  UserRegister,
+} from '../model/user.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/users';
 const AUTH_DATA = 'auth_data';
@@ -29,17 +34,16 @@ export class AuthStore {
       .pipe(
         map((user) => {
           if (user && user.auth_token) {
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem(AUTH_DATA, JSON.stringify(user));
             this.subject.next(user);
           }
-
-          return user;
-        })
+        }),
+        shareReplay()
       );
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(AUTH_DATA);
     this.subject.next(null!!);
   }
 }

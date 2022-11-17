@@ -19,16 +19,22 @@
       <a>Favorites</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
-      <a (click)="openDialog()">Login</a>
+      <a (click)="openLoginDialog()">Login</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
-      <a>User Name</a>
+      <a>Username</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
-      <button type="button" class="btn btn-danger">New Account</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="openRegisterDialog()"
+      >
+        New Account
+      </button>
     </li>
-    <li *ngIf="auth.isLoggedIn$">
-      <img src="" alt="" />
+    <li *ngIf="auth.isLoggedIn$ | async">
+      <img src="../../assets/images/CVslika.jpg" alt="" width="30px" />
     </li>
   </ul>
 </nav>

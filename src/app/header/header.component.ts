@@ -3,6 +3,7 @@ import { AuthStore } from '../services/auth.store';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../components/login/login.component';
 import { User } from '../model/user.model';
+import { NewAccountComponent } from '../components/new-account/new-account.component';
 
 @Component({
   selector: 'app-header',
@@ -18,22 +19,29 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openDialog(): void {
+  openLoginDialog(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '550px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.user = result; //glupost teska
+      this.user = result;
+      console.log(result);
+    });
+  }
+
+  openRegisterDialog(): void {
+    let dialogRef = this.dialog.open(NewAccountComponent, {
+      width: '550px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.user = result;
     });
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     this.opened.emit();
-  }
-
-  logout() {
-    this.auth.logout();
   }
 }
