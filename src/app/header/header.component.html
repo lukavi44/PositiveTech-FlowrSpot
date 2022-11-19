@@ -1,0 +1,33 @@
+<head>
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+</head>
+
+<nav class="nav navbar">
+  <div class="logo">
+    <a><img src="../../assets/images/logo/old.png" alt="logo" /></a>
+  </div>
+  <button class="burger" (click)="toggleMenu()">
+    <i class="material-icons"> {{ isMenuOpen ? "close" : "menu" }} </i>
+  </button>
+
+  <ul class="list" [class.is-open]="isMenuOpen">
+    <li class="list-item">
+      <a>Flowers</a>
+    </li>
+    <li class="list-item">
+      <a>Latest Sightings</a>
+    </li>
+    <li class="list-item">
+      <a>Favorites</a>
+    </li>
+    <li class="list-item">
+      <a>Login</a>
+    </li>
+    <li class="list-item">
+      <button type="button" class="btn btn-danger">New Account</button>
+    </li>
+  </ul>
+</nav>
