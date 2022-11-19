@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../components/login/login.component';
 import { User } from '../model/user.model';
 import { NewAccountComponent } from '../components/new-account/new-account.component';
+import { LogoutComponent } from '../components/logout/logout.component';
 
 @Component({
   selector: 'app-header',
@@ -43,5 +44,15 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     this.opened.emit();
+  }
+
+  openUserInfoDialog(): void {
+    let dialogRef = this.dialog.open(LogoutComponent, {
+      width: '550px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.user = result;
+    });
   }
 }

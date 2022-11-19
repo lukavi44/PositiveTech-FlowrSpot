@@ -18,4 +18,11 @@ export class FlowerService {
       })
     );
   }
+  getOne(id: number): Observable<Flower> {
+    return this.http.get(`${baseUrl}/${id}`).pipe(
+      map((data: any) => {
+        return new Flower(data);
+      })
+    );
+  }
 }

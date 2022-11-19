@@ -34,7 +34,12 @@
       </button>
     </li>
     <li *ngIf="auth.isLoggedIn$ | async">
-      <img src="../../assets/images/CVslika.jpg" alt="" width="30px" />
+      <img
+        src="../../assets/images/CVslika.jpg"
+        alt=""
+        width="30px"
+        (click)="openUserInfoDialog()"
+      />
     </li>
   </ul>
 </nav>

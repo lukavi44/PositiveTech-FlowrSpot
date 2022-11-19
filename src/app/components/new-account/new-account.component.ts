@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthStore } from 'src/app/services/auth.store';
 import { UserService } from 'src/app/services/user.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserRegister } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-new-account',
@@ -19,7 +21,9 @@ export class NewAccountComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthStore,
-    private userService: UserService
+    private userService: UserService,
+    public dialogRef: MatDialogRef<NewAccountComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: UserRegister
   ) {
     this.registerForm = fb.group({
       firstName: ['', Validators.required],
@@ -33,9 +37,7 @@ export class NewAccountComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    console.log(typeof this.registerForm.value, 'ASDASDASD');
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.submitted = true;
@@ -59,5 +61,8 @@ export class NewAccountComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }

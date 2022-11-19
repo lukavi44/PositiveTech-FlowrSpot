@@ -43,6 +43,16 @@
         width: 100%;
       }
     }
+
+    .ng-star-inserted {
+      img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: fill;
+        margin-right: 15px;
+      }
+    }
     .list-item {
       font-style: normal;
       font-weight: 500;
@@ -62,12 +72,7 @@
           border-bottom: none;
         }
       }
-      img {
-        border-radius: 25px;
-        width: 40px;
-        height: 40px;
-        object-fit: fill;
-      }
+
       a {
         text-decoration: none;
         color: #949ea0;

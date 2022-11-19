@@ -87,3 +87,21 @@
     scale: 1.05;
   }
 }
+
+.close-dialog {
+  position: absolute;
+  left: 46%;
+  top: 79%;
+  padding-left: 6px;
+  p {
+    font-family: "Ubuntu";
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13px;
+    text-align: center;
+    color: #ffffff;
+    mix-blend-mode: normal;
+  }
+}

@@ -4,9 +4,11 @@
   box-sizing: border-box;
   overflow: visible;
 }
+
 .mat-dialog-container {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 .mat-card {
   padding: 20px;
@@ -58,7 +60,7 @@
           font-family: "Ubuntu";
           font-style: normal;
           font-weight: 500;
-          font-size: 14px;
+          font-size: 16px;
           line-height: 14px;
           text-align: center;
           color: #fff;
@@ -79,5 +81,22 @@
   border: none;
   &:hover {
     scale: 1.05;
+  }
+}
+.close-dialog {
+  position: absolute;
+  left: 46%;
+  top: 71%;
+  padding-left: 6px;
+  p {
+    font-family: "Ubuntu";
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13px;
+    text-align: center;
+    color: #ffffff;
+    mix-blend-mode: normal;
   }
 }
