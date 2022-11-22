@@ -21,6 +21,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { LogoutComponent } from './components/logout/logout.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { SightingsComponent } from './components/sightings/sightings.component';
+import { FlowerListComponent } from './flower/flower-list/flower-list.component';
+import { FlowerDetailComponent } from './flower/flower-detail/flower-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     NewAccountComponent,
     LoginComponent,
     LogoutComponent,
+    UserPageComponent,
+    SightingsComponent,
+    FlowerListComponent,
+    FlowerDetailComponent,
   ],
   imports: [
     BrowserModule,

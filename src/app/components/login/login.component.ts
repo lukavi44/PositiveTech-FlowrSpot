@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+
 import { AuthStore } from 'src/app/services/auth.store';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserLogin } from 'src/app/model/user.model';
@@ -20,11 +20,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  // returnUrl: string = '';
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private auth: AuthStore,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -34,7 +31,6 @@ export class LoginComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
     });
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   ngOnInit(): void {}
@@ -47,7 +43,9 @@ export class LoginComponent implements OnInit {
     const val = this.loginForm.value;
     this.auth.login(val.email, val.password).subscribe(
       () => {
-        this.router.navigateByUrl('home');
+        alert(
+          'Congratulations! You have successfully signed up for FlowrSpot!'
+        );
         this.dialogRef.close();
       },
       (err) => {

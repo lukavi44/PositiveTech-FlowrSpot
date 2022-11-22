@@ -26,9 +26,9 @@ export class NewAccountComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: UserRegister
   ) {
     this.registerForm = fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      date_of_birth: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
@@ -53,7 +53,9 @@ export class NewAccountComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data) => {
-          alert('Registration successful');
+          alert(
+            'Congratulations! You have successfully signed up for FlowrSpot!'
+          );
           this.router.navigate(['/login']);
         },
         (error) => {

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User, UserRegister } from '../model/user.model';
+import { Observable } from 'rxjs';
+import { RegisterResponse, User, UserRegister } from '../model/user.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/users/register';
 
@@ -14,9 +15,9 @@ export class UserService {
     return this.http.get<User[]>(`/users`);
   }
 
-  register(user: UserRegister) {
+  register(user: UserRegister): Observable<RegisterResponse> {
     console.log('in register');
-    return this.http.post(baseUrl, user);
+    return this.http.post<RegisterResponse>(baseUrl, user);
   }
 
   delete(id: number) {

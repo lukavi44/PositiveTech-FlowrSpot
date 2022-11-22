@@ -46,4 +46,6 @@ export class AuthStore {
     localStorage.removeItem(AUTH_DATA);
     this.subject.next(null!!);
   }
+
+  getCurrentUser() {}
 }

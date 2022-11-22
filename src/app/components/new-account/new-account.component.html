@@ -4,37 +4,37 @@
     <form [formGroup]="registerForm" class="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <mat-form-field>
-          <mat-label for="firstName">First Name</mat-label>
+          <mat-label for="first_name">First Name</mat-label>
           <input
             matInput
             type="text"
             name="firstName"
-            id="firstName"
+            id="first_name"
             class="input"
-            formControlName="firstName"
+            formControlName="first_name"
           />
         </mat-form-field>
         <mat-form-field>
-          <mat-label for="lastName">Last Name</mat-label>
+          <mat-label for="last_name">Last Name</mat-label>
           <input
             matInput
             type="text"
             name="lastName"
-            id="lastName"
+            id="last_name"
             class="input"
-            formControlName="lastName"
+            formControlName="last_name"
           />
         </mat-form-field>
       </div>
       <mat-form-field>
-        <mat-label for="dateOfBirth">Date of Birth</mat-label>
+        <mat-label for="date_of_birth">Date of Birth</mat-label>
         <input
           matInput
           type="date"
           name="dateOfBirth"
-          id="dateOfBirth"
+          id="date_of_birth"
           class="input"
-          formControlName="dateOfBirth"
+          formControlName="date_of_birth"
         />
       </mat-form-field>
       <mat-form-field>

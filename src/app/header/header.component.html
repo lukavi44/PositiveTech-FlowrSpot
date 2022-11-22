@@ -15,14 +15,14 @@
     <li class="list-item">
       <a>Latest Sightings</a>
     </li>
-    <li class="list-item">
+    <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
       <a>Favorites</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
       <a (click)="openLoginDialog()">Login</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
-      <a>Username</a>
+      <a>{{ user.id }}</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
       <button

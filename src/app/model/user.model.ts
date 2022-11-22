@@ -30,8 +30,7 @@ export class UserRegister {
   first_name: string;
   last_name: string;
   date_of_birth: string;
-  auth_token?: string;
-  error?: string;
+  // auth_token?: string;
 
   constructor(obj?: any) {
     this.email = (obj && obj.email) || '';
@@ -39,14 +38,15 @@ export class UserRegister {
     this.first_name = (obj && obj.first_name) || '';
     this.last_name = (obj && obj.last_name) || '';
     this.date_of_birth = (obj && obj.date_of_birth) || '';
-    this.auth_token = (obj && obj.auth_token) || '';
-    this.error = (obj && obj.error) || '';
+    // this.auth_token = (obj && obj.auth_token) || '';
   }
 }
 
 export class RegisterResponse {
   auth_token: string;
+  error: string;
   constructor(obj?: any) {
     this.auth_token = (obj && obj.auth_token) || '';
+    this.error = (obj && obj.error) || '';
   }
 }

@@ -13,7 +13,7 @@ import { LogoutComponent } from '../components/logout/logout.component';
 })
 export class HeaderComponent implements OnInit {
   @Output() opened = new EventEmitter<any>();
-  @Input() user: User = new User();
+  @Output() user: User = new User();
   isMenuOpen = false;
 
   constructor(public auth: AuthStore, private dialog: MatDialog) {}
