@@ -13,18 +13,18 @@
       <a [routerLink]="['flowers']">Flowers</a>
     </li>
     <li class="list-item">
-      <a>Latest Sightings</a>
+      <a [routerLink]="['sighting-list']">Latest Sightings</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
-      <a>Favorites</a>
+      <a (click)="openSettingsDialog()">Favorites</a>
     </li>
-    <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
+    <li class="list-item" *ngIf="!(auth.isLoggedIn$ | async)">
       <a (click)="openLoginDialog()">Login</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
-      <a>{{ user.id }}</a>
+      <a [routerLink]="['/user-page']"> Luka </a>
     </li>
-    <li class="list-item" *ngIf="auth.isLoggedOut$ | async">
+    <li class="list-item" *ngIf="!(auth.isLoggedIn$ | async)">
       <button
         type="button"
         class="btn btn-danger"

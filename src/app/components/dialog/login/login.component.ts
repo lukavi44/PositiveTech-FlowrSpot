@@ -10,6 +10,7 @@ import {
 import { AuthStore } from 'src/app/services/auth.store';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserLogin } from 'src/app/model/user.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
           'Congratulations! You have successfully signed up for FlowrSpot!'
         );
         this.dialogRef.close();
+        this.auth.isLoggedIn$ = new BehaviorSubject<boolean>(true);
       },
       (err) => {
         alert('Login has failed!');

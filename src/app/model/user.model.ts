@@ -2,11 +2,18 @@ export class User {
   id: number;
   first_name: string;
   last_name: string;
+  full_name?: string;
 
   constructor(obj?: any) {
     this.id = (obj && obj.id) || null;
     this.first_name = (obj && obj.first_name) || '';
     this.last_name = (obj && obj.last_name) || '';
+    this.full_name =
+      (obj &&
+        obj.first_name &&
+        obj.last_name &&
+        `${obj.first_name}${obj.last_name}`) ||
+      null;
   }
 }
 
@@ -30,7 +37,6 @@ export class UserRegister {
   first_name: string;
   last_name: string;
   date_of_birth: string;
-  // auth_token?: string;
 
   constructor(obj?: any) {
     this.email = (obj && obj.email) || '';
@@ -38,7 +44,6 @@ export class UserRegister {
     this.first_name = (obj && obj.first_name) || '';
     this.last_name = (obj && obj.last_name) || '';
     this.date_of_birth = (obj && obj.date_of_birth) || '';
-    // this.auth_token = (obj && obj.auth_token) || '';
   }
 }
 

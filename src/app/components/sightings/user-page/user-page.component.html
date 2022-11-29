@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="user-info">
+    <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
+    <div class="heading">
+      <h2 mat-dialog-title>{{ user.first_name }} {{ user.last_name }}</h2>
+      <span>4 sightings</span>
+    </div>
+  </div>
+  <button type="button">Report</button>
+</div>
+<div class="sighting-list">
+  <div class="sighting-holder" *ngFor="let s of userSightings">
+    <img
+      src="{{ s.picture }}"
+      alt=""
+      onerror="this.src= '../../../assets/images/placeholder.png'; "
+    />
+    <div class="bottom">
+      <div class="user-info">
+        <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
+        <div class="heading">
+          <h2>{{ s.name }}</h2>
+          <span>By {{ s.user.full_name }}</span>
+        </div>
+      </div>
+      <div class="description">
+        <p>{{ s.description }}</p>
+      </div>
+    </div>
+    <div class="like-comment">
+      <p>{{ s.comments_count }} Comments</p>
+      <p>{{ s.likes_count }} Favorites</p>
+    </div>
+  </div>
+</div>

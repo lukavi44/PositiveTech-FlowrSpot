@@ -2,12 +2,12 @@
   <form [formGroup]="searchForm" class="form" (ngSubmit)="onSearchSubmit()">
     <input
       matInput
-      formControlName="search"
+      formControlName="searchInput"
       type="search"
-      name="search"
-      id="search"
+      name="searchInput"
+      id="searchInput"
       placeholder="Looking for something specific?"
-      #searchInput
+      autofocus
     />
     <button mat-button matPrefix mat-icon-button>
       <mat-icon>search</mat-icon>

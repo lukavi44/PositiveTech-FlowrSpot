@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthStore } from 'src/app/services/auth.store';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserRegister } from 'src/app/model/user.model';
+import { User, UserRegister } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-new-account',
@@ -16,12 +16,14 @@ export class NewAccountComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  newUser: UserRegister = new UserRegister();
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private auth: AuthStore,
     private userService: UserService,
+    private route: ActivatedRoute,
     public dialogRef: MatDialogRef<NewAccountComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserRegister
   ) {
@@ -51,19 +53,19 @@ export class NewAccountComponent implements OnInit {
     this.userService
       .register(this.registerForm.value)
       .pipe(first())
-      .subscribe(
-        (data) => {
-          alert(
-            'Congratulations! You have successfully signed up for FlowrSpot!'
-          );
-          this.router.navigate(['/login']);
+      .subscribe({
+        next: (data: any) => {
+          alert('Registration successful');
+          this.newUser = new UserRegister(data);
+          this.router.navigate(['/login'], { relativeTo: this.route });
         },
-        (error) => {
-          alert('Registration has failed!');
+        error: (error) => {
+          alert(error);
           this.loading = false;
-        }
-      );
+        },
+      });
   }
+
   closeDialog(): void {
     this.dialogRef.close();
   }

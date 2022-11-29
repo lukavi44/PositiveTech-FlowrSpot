@@ -1,0 +1,41 @@
+<mat-card>
+  <button
+    class="close"
+    mat-icon-button
+    aria-label="close dialog"
+    mat-dialog-close
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-dialog-content>
+    <h2 mat-dialog-title>Settings</h2>
+    <div class="notification">
+      <mat-label>Turn notification</mat-label>
+      <div class="toggle">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <div class="on-off">
+          <p>on</p>
+          <p>off</p>
+        </div>
+      </div>
+    </div>
+    <div class="radius">
+      <p>Select favorite flower sighting radius for notification</p>
+      <input
+        type="range"
+        name="radius"
+        id="radius"
+        min="0"
+        max="10"
+        step="5"
+        value="0"
+      />
+    </div>
+    <mat-dialog-actions>
+      <button mat-raised-button id="save" class="save">Save settings</button>
+    </mat-dialog-actions>
+  </mat-dialog-content>
+</mat-card>
