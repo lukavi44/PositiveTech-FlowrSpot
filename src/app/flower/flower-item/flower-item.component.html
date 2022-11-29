@@ -1,6 +1,9 @@
 <div class="flower">
+  <!-- <mat-icon>stars</mat-icon> -->
   <img [src]="flower.profile_picture" alt="flower" />
   <h5>{{ flower.name }}</h5>
   <p>{{ flower.latin_name }}</p>
-  <button type="button" class="btn">{{ flower.sightings }} sightings</button>
+  <button type="button" class="btn" [routerLink]="['/flowers', flower.id]">
+    {{ flower.sightings }} sightings
+  </button>
 </div>

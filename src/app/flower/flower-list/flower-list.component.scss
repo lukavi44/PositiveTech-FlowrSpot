@@ -1,0 +1,23 @@
+.input {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  input[placeholder] {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 20px;
+    color: #034a58;
+  }
+  input {
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    border: none;
+    width: 600px;
+    height: 70px;
+    border-radius: 3px;
+  }
+}

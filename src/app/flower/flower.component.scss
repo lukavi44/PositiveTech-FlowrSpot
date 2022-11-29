@@ -1,12 +1,12 @@
 .container {
   padding: 20px;
-  margin-top: 69px;
+  margin-top: 60px;
   .flower-holder {
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
   }
 }

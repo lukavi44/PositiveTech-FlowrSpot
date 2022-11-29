@@ -43,20 +43,41 @@
         width: 100%;
       }
     }
+
+    .ng-star-inserted {
+      img {
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        object-fit: fill;
+        margin-right: 15px;
+      }
+    }
     .list-item {
       font-style: normal;
       font-weight: 500;
       line-height: 14px;
       color: #949ea0;
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
       &:nth-child(4) {
         color: #df9186;
       }
       @include tablet {
         margin-top: 2em;
-        // border-bottom: 1px solid #949ea0;
         text-align: center;
         &:last-child {
           border-bottom: none;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: #949ea0;
+        &:hover {
+          color: #df9186;
         }
       }
       .btn {

@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.mat-dialog-container {
+  margin: 0;
+  padding: 0 !important;
+  // position: relative;
+}
+.mat-card {
+  font-family: "Ubuntu";
+  font-style: normal;
+  box-shadow: none;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  button.close {
+    align-self: flex-end;
+    background: #fff;
+  }
+
+  .mat-dialog-content {
+    display: flex;
+    padding: 20px 45px;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 100%;
+    .user-top {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 35px;
+      img {
+        border-radius: 50%;
+        height: 92px;
+        width: 86px;
+        object-fit: cover;
+      }
+      .heading {
+        display: flex;
+        flex-direction: column;
+        .mat-dialog-title {
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 20px;
+          text-align: center;
+          color: #334144;
+          span {
+            color: #949ea0;
+          }
+        }
+      }
+    }
+    .user-bottom {
+      .info-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 21px;
+        .label {
+          font-family: "Ubuntu";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 10px;
+          color: #949ea0;
+        }
+        p {
+          font-family: "Ubuntu";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 13px;
+          /* identical to box height, or 72% */
+
+          color: #334144;
+        }
+      }
+    }
+
+    .mat-dialog-actions {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+        border-radius: 3px;
+        width: 50%;
+        padding: 25px;
+        margin: 40px 0 20px;
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 14px;
+        text-align: center;
+        color: #fff;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep button:not(:disabled) {
+  background: #eb9084;
+  border: none;
+  &:hover {
+    scale: 1.05;
+  }
+}

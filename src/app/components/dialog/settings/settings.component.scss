@@ -1,0 +1,155 @@
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mat-card {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: none !important;
+  button.close {
+    background: #fff;
+    border: none;
+    align-self: end;
+  }
+  .mat-dialog-content {
+    height: 100%;
+    color: #334144;
+    font-style: normal;
+    font-family: "Ubuntu";
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem 4rem 0 !important;
+    h2 {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: center;
+    }
+    .notification {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      align-items: center;
+      padding-bottom: 2.5rem !important;
+      border-bottom: 1px solid #e8e9ed;
+      .toggle {
+        .on-off {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+    }
+    .radius {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+    }
+    .radius p {
+    }
+    .radius input[type="range"] {
+      -webkit-appearance: none !important;
+      color: #eb9084;
+      width: 14rem;
+      height: 2px;
+      background: #334144;
+      border: none;
+      outline: none;
+    }
+    .radius input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      width: 14px;
+      height: 14px;
+      background: #eaa79e;
+      border: 2px solid #eaa79e;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .radius input[type="range"]::-webkit-slider-thumb:hover {
+      background: #eb9084;
+    }
+  }
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    button.save {
+      border-radius: 3px;
+      padding: 22px !important;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 14px;
+      text-align: center;
+      color: #fff;
+      background: #eb9084;
+      border: none;
+    }
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #eb9084;
+  -webkit-transition: 0.4s;
+  transition: 0.6s;
+}
+
+input:checked + .slider {
+  background-color: rgba(212, 208, 208, 0.79);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(65px);
+  -ms-transform: translateX(65px);
+  transform: translateX(65px);
+  background-color: #eaa79e;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

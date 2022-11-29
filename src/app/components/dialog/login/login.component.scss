@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.mat-dialog-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.mat-card {
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: none;
+  box-sizing: border-box;
+  width: 100%;
+  // height: 350px;
+
+  .mat-dialog-title {
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #334144;
+  }
+  .mat-dialog-content {
+    height: 250px;
+    width: 100%;
+
+    .form {
+      height: fit-content;
+      background-color: #fff;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      .mat-form-field {
+        font-family: "Montserrat";
+        width: 100%;
+
+        input {
+          width: 93%;
+          padding: 15px;
+          background: #f5f6f7;
+          border: 1px solid #dfe5ea;
+          border-radius: 3px;
+        }
+      }
+      .mat-dialog-actions {
+        width: 100%;
+        button {
+          box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+          border-radius: 3px;
+          width: 100%;
+          padding: 20px;
+          margin-top: 20px;
+          font-family: "Ubuntu";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 14px;
+          text-align: center;
+          color: #fff;
+        }
+        button[disabled] {
+          background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+        }
+      }
+    }
+  }
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep button:not(:disabled) {
+  background: #eb9084;
+  border: none;
+  &:hover {
+    scale: 1.05;
+  }
+}
+.close-dialog {
+  position: absolute;
+  left: 46%;
+  top: 71%;
+  padding-left: 6px;
+  p {
+    font-family: "Ubuntu";
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 13px;
+    text-align: center;
+    color: #ffffff;
+    mix-blend-mode: normal;
+  }
+}

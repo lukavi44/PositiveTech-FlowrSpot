@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Flower } from 'src/app/model/flower.model';
 
 @Component({
@@ -8,9 +9,13 @@ import { Flower } from 'src/app/model/flower.model';
 })
 export class FlowerItemComponent implements OnInit {
   @Input() flower: Flower = new Flower();
-  @Input() index: number = -1;
+  @Input() flowerId: number = -1;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.flowerId = params['id'];
+    });
+  }
 }

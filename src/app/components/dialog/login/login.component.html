@@ -1,0 +1,37 @@
+<mat-card>
+  <h2 mat-dialog-title>Welcome Back</h2>
+
+  <mat-dialog-content>
+    <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <input
+          class="input"
+          matInput
+          id="email"
+          type="email"
+          formControlName="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          class="input"
+          matInput
+          id="password"
+          type="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <mat-dialog-actions>
+        <button mat-raised-button id="login" [disabled]="!loginForm.valid">
+          Login to your Account
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+</mat-card>
+<div class="close-dialog">
+  <p (click)="closeDialog()">I dont want to login</p>
+</div>

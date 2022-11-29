@@ -1,7 +1,7 @@
 <div class="container">
   <div class="flower-holder">
     <app-flower-item
-      *ngFor="let flower of flowers"
+      *ngFor="let flower of flowers.slice(0, 8)"
       [flower]="flower"
     ></app-flower-item>
   </div>

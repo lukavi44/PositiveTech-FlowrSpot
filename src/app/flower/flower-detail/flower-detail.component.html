@@ -1,0 +1,32 @@
+<header>
+  <div class="background">
+    <img src="../../../assets/images/pl-hero.png" alt="" />
+  </div>
+  <div class="flower-header">
+    <div class="left">
+      <img src="{{ flower.profile_picture }}" alt="" />
+      <div class="text">
+        <p>{{ flower.sightings }} sightings</p>
+        <h2>{{ flower.name }}</h2>
+        <span>{{ flower.latin_name }}</span>
+      </div>
+    </div>
+    <div class="right">
+      <button type="button">+Add New Sighting</button>
+    </div>
+  </div>
+</header>
+<div class="about">
+  <div class="left">
+    <p>
+      {{ flower.features }}
+    </p>
+  </div>
+  <div class="right">
+    <p>
+      {{ flower.description }}
+    </p>
+  </div>
+</div>
+<hr />
+<app-sightings></app-sightings>

@@ -3,19 +3,22 @@
     <div class="text-box">
       <h1>Discover flowers around you</h1>
       <h3>Explore between more than 8,427 sightings</h3>
-      <input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Looking for something specific?"
-        class="fa-solid fa-magnifying-glass"
-      />
+      <form [formGroup]="searchForm" class="form" (ngSubmit)="onSearchSubmit()">
+        <input
+          matInput
+          formControlName="search"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Looking for something specific?"
+          #searchInput
+        />
+        <button mat-button matPrefix mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
     </div>
   </div>
 
   <app-flower></app-flower>
 </div>
-
-<!-- *ngFor="let flower of flowers; let i = index"
-[flower]="flower"
-[index]="i" -->
