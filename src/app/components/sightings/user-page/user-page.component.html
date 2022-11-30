@@ -14,6 +14,7 @@
       src="{{ s.picture }}"
       alt=""
       onerror="this.src= '../../../assets/images/placeholder.png'; "
+      [routerLink]="['/sighting/', s.id]"
     />
     <div class="bottom">
       <div class="user-info">

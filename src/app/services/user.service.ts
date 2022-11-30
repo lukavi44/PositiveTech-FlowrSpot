@@ -25,18 +25,17 @@ export class UserService {
     );
   }
 
-  // getOne(id: number) {
-  //   return this.http.get<User>(`${baseUrl}/${id}`).pipe(
-  //     map((data: User) => {
-  //       return new User(data);
-  //     })
-  //   );
-  // }
+  getMyInfo(): Observable<User> {
+    return this.http.get(`${baseUrl}/me`).pipe(
+      map((data: any) => {
+        return data;
+      })
+    );
+  }
 
   register(user: UserRegister): Observable<UserRegister> {
     return this.http.post(`${baseUrl}/register`, user).pipe(
       map((data: any) => {
-        console.log(data, 'servis register');
         return new UserRegister(data);
       })
     );

@@ -1,1 +1,61 @@
-<p>new-sighting works!</p>
+<div class="container">
+  <header>
+    <button class="btn" id="preview">View on Google Mapse</button>
+  </header>
+  <div class="new-sighting">
+    <div class="heading">
+      <h2>Add New Sighting</h2>
+      <span>Explore between more than 8,427 sightings</span>
+    </div>
+    <div class="form">
+      <form novalidate #form="ngForm">
+        <div class="top">
+          <div class="form-group">
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Title of the sighting"
+              [(ngModel)]="sighting.name"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="coordinates"
+              name="coordinates"
+              placeholder="Coordinates of the sighting"
+              [(ngModel)]="sighting.latitude"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="file"
+              name="add"
+              id="add"
+              [innerText]="['Add a Picture']"
+              [(ngModel)]="sighting.picture"
+            />
+          </div>
+        </div>
+        <div class="bottom">
+          <textarea
+            name="desc"
+            id="desc"
+            cols="30"
+            rows="10"
+            placeholder="Write a description..."
+            [(ngModel)]="sighting.description"
+          ></textarea>
+          <button
+            type="button"
+            (click)="postSighting()"
+            [disabled]="form.invalid"
+          >
+            Create New Sighting
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

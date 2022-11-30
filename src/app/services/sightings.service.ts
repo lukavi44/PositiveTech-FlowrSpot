@@ -1,4 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaderResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import {
@@ -8,6 +12,15 @@ import {
 } from '../model/sightings.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com//api/v1/sightings';
+
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json; charset=utf-8',
+//     'Access-Control-Allow-Credentials': '*',
+//     'X-Requested-With': 'XMLHttpRequest',
+//   }),
+// };
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +34,14 @@ export class SightingsService {
         return (
           (data && data.sightings.map((elem: any) => new Sighting(elem))) || []
         );
+      })
+    );
+  }
+
+  postSighting(sighting: Sighting): Observable<any> {
+    return this.http.post(baseUrl, sighting).pipe(
+      map((data: any) => {
+        return new Sighting(data);
       })
     );
   }
@@ -88,5 +109,15 @@ export class SightingsService {
         );
       })
     );
+  }
+
+  postSightingComment(sightingId: number, comment: Comment): Observable<any> {
+    return this.http
+      .post<Comment>(`${baseUrl}/${sightingId}/comments`, comment)
+      .pipe(
+        map((response: any) => {
+          console.log(response);
+        })
+      );
   }
 }

@@ -44,9 +44,7 @@ export class HeaderComponent implements OnInit {
       width: '550px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('log iz login dialoga', result);
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   openRegisterDialog(): void {
@@ -73,15 +71,4 @@ export class HeaderComponent implements OnInit {
       console.log('log iz userinfo dialoga', result); //sta ce result
     });
   }
-
-  // getOneUser() {
-  //   this.userService.getOne(this.userId).subscribe({
-  //     next: (data: any) => {
-  //       this.user = data.user;
-  //     },
-  //     error: (err: any) => {
-  //       console.log(err);
-  //     },
-  //   });
-  // }
 }

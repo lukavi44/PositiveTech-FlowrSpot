@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Flower } from '../model/flower.model';
@@ -47,4 +47,10 @@ export class FlowerService {
       })
     );
   }
+
+  // getFavoriteFlowers(): Observable<Flower[]> {
+  //   return this.http.get(`${baseUrl}/favorites`).pipe(map((data: any) => {
+  //     return data
+  //   }))
+  // }
 }

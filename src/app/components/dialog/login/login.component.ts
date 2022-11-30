@@ -9,8 +9,10 @@ import {
 
 import { AuthStore } from 'src/app/services/auth.store';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserLogin } from 'src/app/model/user.model';
+import { User, UserLogin } from 'src/app/model/user.model';
 import { BehaviorSubject } from 'rxjs';
+import { Token } from '@angular/compiler';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  authToken: string = '';
+  loggedUser: User = new User();
 
   constructor(
     private auth: AuthStore,

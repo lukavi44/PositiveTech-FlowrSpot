@@ -31,9 +31,6 @@ export class HomeComponent implements OnInit {
 
   onSearchSubmit(): void {
     this.router.navigateByUrl('/api/v1/flowers/search/' + this.searchForm); //treba mi index flowera
-    // this.route.params.subscribe((params: Params) => {
-    //   this.flowerId = params['id'];
-    // });
     console.log(this.searchForm.value);
   }
 

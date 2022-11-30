@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/dialog/login/login.component';
 import { NewAccountComponent } from './components/dialog/new-account/new-account.component';
 import { SettingsComponent } from './components/dialog/settings/settings.component';
+import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
 import { SightingDetailComponent } from './components/sightings/sighting-detail/sighting-detail.component';
 import { SightingListComponent } from './components/sightings/sighting-list/sighting-list.component';
 import { UserPageComponent } from './components/sightings/user-page/user-page.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'sighting-list', component: SightingListComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'sighting/:id', component: SightingDetailComponent },
+  { path: 'new-sighting', component: NewSightingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
