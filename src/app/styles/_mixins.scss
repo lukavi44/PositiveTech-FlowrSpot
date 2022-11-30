@@ -16,22 +16,37 @@
   }
 }
 
-@mixin button {
+@mixin button-pink {
   button {
-    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
     border-radius: 3px;
-    padding: 25px;
-    margin: 40px 0 20px;
+    border: none;
+    padding: 20px;
     font-family: "Ubuntu";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 14px;
     text-align: center;
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
     color: #fff;
     @content;
   }
 }
-
-@mixin header {
+@mixin button-white {
+  button {
+    border-radius: 3px;
+    border: none;
+    padding: 20px;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    color: #eaa79e;
+    @content;
+  }
 }

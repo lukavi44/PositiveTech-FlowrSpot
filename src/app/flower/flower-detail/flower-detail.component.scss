@@ -65,8 +65,7 @@ header {
       }
     }
     .right {
-      @include button {
-        background: #eb9084;
+      @include button-pink {
       }
     }
   }

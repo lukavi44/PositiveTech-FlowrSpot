@@ -16,7 +16,6 @@ export class SightingsService {
   constructor(private http: HttpClient) {}
 
   getAllSightings(): Observable<Sighting[]> {
-    //gledaj da observable ne bude u servisu, ne treba ti tu da ga prati, PROUCI TO
     return this.http.get(baseUrl).pipe(
       map((data: any) => {
         return (
@@ -26,10 +25,32 @@ export class SightingsService {
     );
   }
 
-  getOneSighting(id: number): Observable<Sighting> {
-    return this.http.get(`${baseUrl}/${id}`).pipe(
-      map((data: any) => {
-        return new Sighting(data);
+  // getOneSighting(id: number): Observable<Sighting> {
+  //   return this.http.get(`${baseUrl}/${id}`).pipe(
+  //     map((data: any) => {
+  //       console.log(data, 'iz servise sighting');
+  //       return new Sighting(data);
+  //     })
+  //   );
+  // }
+  getOne(id: number) {
+    return this.http.get<Sighting>(`${baseUrl}/${id}`).pipe(
+      map((response) => {
+        ({
+          id: response.id,
+          description: response.description,
+          picture: response.picture,
+          likes_count: response.likes_count,
+          comments_count: response.comments_count,
+          created_at: response.created_at,
+          flower: response.flower,
+          latitude: response.latitude,
+          longitude: response.longitude,
+          name: response.name,
+          user: response.user,
+        } as unknown as Sighting);
+        const userResponse = { ...response } as Sighting;
+        return userResponse;
       })
     );
   }

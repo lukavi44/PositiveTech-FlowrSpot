@@ -27,6 +27,8 @@ import { FlowerListComponent } from './flower/flower-list/flower-list.component'
 import { FlowerDetailComponent } from './flower/flower-detail/flower-detail.component';
 import { SightingListComponent } from './components/sightings/sighting-list/sighting-list.component';
 import { SettingsComponent } from './components/dialog/settings/settings.component';
+import { SightingDetailComponent } from './components/sightings/sighting-detail/sighting-detail.component';
+import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { SettingsComponent } from './components/dialog/settings/settings.compone
     FlowerDetailComponent,
     SightingListComponent,
     SettingsComponent,
+    SightingDetailComponent,
+    NewSightingComponent,
   ],
   imports: [
     BrowserModule,
