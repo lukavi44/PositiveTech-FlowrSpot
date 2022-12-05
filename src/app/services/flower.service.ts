@@ -5,6 +5,14 @@ import { Flower } from '../model/flower.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/flowers';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    Authorization: `Bearer ${
+      JSON.parse(localStorage.getItem('auth_data') || '').auth_token
+    }`,
+  }),
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -48,9 +56,29 @@ export class FlowerService {
     );
   }
 
-  // getFavoriteFlowers(): Observable<Flower[]> {
-  //   return this.http.get(`${baseUrl}/favorites`).pipe(map((data: any) => {
-  //     return data
-  //   }))
-  // }
+  getFavoriteFlowers(): Observable<Flower[]> {
+    return this.http.get(`${baseUrl}/favorites`, httpOptions).pipe(
+      map((data: any) => {
+        return data && data.fav_flowers.map((elem: any) => new Flower(elem));
+      })
+    );
+  }
+
+  postToFavorites(flowerId: number, flower: Flower): Observable<Flower> {
+    return this.http
+      .post(`${baseUrl}/${flowerId}/favorites`, flower, httpOptions)
+      .pipe(
+        map((data: any) => {
+          return new Flower(data);
+        })
+      );
+  }
+
+  getFlowersSearch(query: string = ''): Observable<Flower[]> {
+    return this.http.get(`${baseUrl}/search`, { params: { query } }).pipe(
+      map((data: any) => {
+        return data;
+      })
+    );
+  }
 }

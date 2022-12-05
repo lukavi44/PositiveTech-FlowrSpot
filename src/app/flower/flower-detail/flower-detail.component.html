@@ -1,20 +1,21 @@
 <header>
   <div class="background">
     <img src="../../../assets/images/pl-hero.png" alt="" />
-  </div>
-  <div class="flower-header">
-    <div class="left">
-      <img src="{{ flower.profile_picture }}" alt="" />
-      <div class="text">
-        <p>{{ flower.sightings }} sightings</p>
-        <h2>{{ flower.name }}</h2>
-        <span>{{ flower.latin_name }}</span>
+
+    <div class="flower-header">
+      <div class="left">
+        <img src="{{ flower.profile_picture }}" alt="" />
+        <div class="text">
+          <p>{{ flower.sightings }} sightings</p>
+          <h2>{{ flower.name }}</h2>
+          <span>{{ flower.latin_name }}</span>
+        </div>
       </div>
-    </div>
-    <div class="right">
-      <button type="button" [routerLink]="['/new-sighting']">
-        +Add New Sighting
-      </button>
+      <div class="right">
+        <button type="button" [routerLink]="['/new-sighting']">
+          +Add New Sighting
+        </button>
+      </div>
     </div>
   </div>
 </header>

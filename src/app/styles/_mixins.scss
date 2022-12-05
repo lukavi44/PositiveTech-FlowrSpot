@@ -5,6 +5,11 @@
     box-sizing: border-box;
   }
 }
+@mixin laptop {
+  @media screen and (max-width: 1700px) {
+    @content;
+  }
+}
 @mixin tablet {
   @media screen and (max-width: 800px) {
     @content;

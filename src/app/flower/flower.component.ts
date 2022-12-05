@@ -17,7 +17,7 @@ export class FlowerComponent implements OnInit {
   }
 
   getFlowers() {
-    this.flowerService.getRandomFlowers().subscribe({
+    this.flowerService.getFlowers().subscribe({
       next: (data: Flower[]) => {
         console.log(data);
         this.flowers = data;

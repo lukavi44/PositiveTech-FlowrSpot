@@ -1,6 +1,8 @@
 <div class="flower">
-  <!-- <mat-icon>stars</mat-icon> -->
-  <img [src]="flower.profile_picture" alt="flower" />
+  <img [src]="flower.profile_picture" alt="flowerPic" />
+  <span class="material-icons" (click)="postFavoriteFlower(flower.id)"
+    >star</span
+  >
   <h5>{{ flower.name }}</h5>
   <p>{{ flower.latin_name }}</p>
   <button type="button" class="btn" [routerLink]="['/flowers', flower.id]">

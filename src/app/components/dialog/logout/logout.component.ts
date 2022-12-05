@@ -34,10 +34,6 @@ export class LogoutComponent implements OnInit {
       next: (data: any) => {
         console.log(data, 'get my info log');
         this.loggedUser = data.user;
-        localStorage.setItem(
-          'user',
-          this.loggedUser.first_name + ' ' + this.loggedUser.last_name
-        );
       },
       error: (err) => console.log(err),
     });

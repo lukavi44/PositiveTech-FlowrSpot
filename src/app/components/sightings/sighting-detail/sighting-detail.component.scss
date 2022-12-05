@@ -7,6 +7,7 @@
   .container-1 {
     display: flex;
     justify-content: center;
+    position: relative;
     header {
       background-image: url("../../../../assets/images/google-placeholder.png");
       width: 100%;
@@ -48,15 +49,19 @@
     .sighting-info {
       font-family: "Ubuntu";
       font-style: normal;
-      width: 1270px;
+      width: 96%;
       position: absolute;
-      top: 48%;
-      left: 21.8%;
+      top: 90%;
+      margin: 0 1rem;
       display: flex;
       padding: 30px;
       gap: 3rem;
       background: #fff;
-      box-shadow: 15px -35px 100px 80px rgba(227, 222, 222, 0.65);
+      box-shadow: 15px -35px 100px 80px rgba(227, 222, 222, 0.95);
+      @include laptop {
+        // left: 2%;
+        // width: 60%;
+      }
 
       .right {
         display: flex;

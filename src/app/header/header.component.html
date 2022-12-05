@@ -16,7 +16,7 @@
       <a [routerLink]="['sighting-list']">Latest Sightings</a>
     </li>
     <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
-      <a (click)="openSettingsDialog()">Favorites</a>
+      <a [routerLink]="['flowers/favorites']">Favorites</a>
     </li>
     <li class="list-item" *ngIf="!(auth.isLoggedIn$ | async)">
       <a (click)="openLoginDialog()">Login</a>

@@ -19,7 +19,7 @@
           />
           <div class="text">
             <h3>{{ sighting.name }}</h3>
-            <!-- <span>by {{ sighting.user["full_name"] }}</span> -->
+            <span>by {{ sighting.user["full_name"] }}</span>
           </div>
         </div>
         <div class="description">
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="form">
-      <form [formGroup]="commentForm" class="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="commentForm" class="form" (ngSubmit)="postComment()">
         <textarea
           name="writeComment"
           id="writeComment"

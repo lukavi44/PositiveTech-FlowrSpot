@@ -15,14 +15,14 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
-      filter: blur(0.2rem);
+      filter: blur(0.15rem);
     }
   }
   .flower-header {
     position: absolute;
-    width: 55%;
+    width: 96%;
+    margin: 1rem;
     top: 18%;
-    left: 22%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,6 +37,7 @@ header {
       img {
         width: 280px;
         height: 350px;
+        filter: none;
       }
       .text {
         display: flex;

@@ -1,9 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { RegisterResponse, User, UserRegister } from '../model/user.model';
+import { User, UserRegister } from '../model/user.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/users';
+const httpOptions = {
+  headers: new HttpHeaders({
+    Authorization: `Bearer ${
+      JSON.parse(localStorage.getItem('auth_data') || '').auth_token
+    }`,
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +33,7 @@ export class UserService {
   }
 
   getMyInfo(): Observable<User> {
-    return this.http.get(`${baseUrl}/me`).pipe(
+    return this.http.get(`${baseUrl}/me`, httpOptions).pipe(
       map((data: any) => {
         return data;
       })

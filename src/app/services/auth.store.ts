@@ -32,6 +32,7 @@ export class AuthStore {
       map((user) => {
         if (user && user.auth_token) {
           localStorage.setItem(AUTH_DATA, JSON.stringify(user));
+          // console.log(user, user.auth_token);
           this.subject.next(user);
           console.log(user);
         }
@@ -45,11 +46,4 @@ export class AuthStore {
     this.subject.next(null!!);
     this.isLoggedIn$ = new BehaviorSubject<boolean>(false);
   }
-
-  getCurrentUser() {}
 }
-
-// console.log('Auth Store aaaaaa');
-// this.isLoggedIn$ = this.user$.pipe(map((user: any) => !!user));
-// this.isLoggedOut$ = this.isLoggedIn$.pipe(map((loggdedIn) => !loggdedIn));
-// isLoggedOut$: Observable<boolean> | undefined;

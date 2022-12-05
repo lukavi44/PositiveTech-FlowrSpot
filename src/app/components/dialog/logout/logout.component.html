@@ -13,18 +13,20 @@
         <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
       </div>
       <div class="heading">
-        <h2 mat-dialog-title>Luka Ladisic</h2>
+        <h2 mat-dialog-title>
+          {{ loggedUser.first_name }} {{ loggedUser.last_name }}
+        </h2>
         <span>47 sightings</span>
       </div>
     </div>
     <div class="user-bottom">
       <div class="info-group">
         <mat-label class="label">First Name</mat-label>
-        <p>Luka</p>
+        <p>{{ loggedUser.first_name }}</p>
       </div>
       <div class="info-group">
         <mat-label class="label">Last Name</mat-label>
-        <p>Ladisic</p>
+        <p>{{ loggedUser.last_name }}</p>
       </div>
       <div class="info-group">
         <mat-label class="label">Date of Birth</mat-label>
@@ -32,7 +34,7 @@
       </div>
       <div class="info-group">
         <mat-label class="label">Email Address</mat-label>
-        <p>lukaku@lukaku.com</p>
+        <p>example@email.com</p>
       </div>
     </div>
     <mat-dialog-actions>

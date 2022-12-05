@@ -29,6 +29,8 @@ import { SightingListComponent } from './components/sightings/sighting-list/sigh
 import { SettingsComponent } from './components/dialog/settings/settings.component';
 import { SightingDetailComponent } from './components/sightings/sighting-detail/sighting-detail.component';
 import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
+import { FavoritesComponent } from './flower/favorites/favorites.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { NewSightingComponent } from './components/sightings/new-sighting/new-si
     SettingsComponent,
     SightingDetailComponent,
     NewSightingComponent,
+    FavoritesComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   padding: 0 !important;
+  position: relative;
+  align-items: center;
 
   header {
     background-image: url("../../../../assets/images/google-placeholder.png");
@@ -27,15 +29,15 @@
   }
 }
 .new-sighting {
-  width: 1270px;
+  width: 96%;
   position: absolute;
-  top: 44%;
-  left: 20.4%;
+  top: 86%;
   display: flex;
   padding: 30px;
+  margin: 1rem;
   gap: 3rem;
   background: #fff;
-  box-shadow: 0px -20px 65px 40px rgb(227 222 222 / 65%);
+  box-shadow: 0px -20px 65px 40px rgb(227 222 222 / 95%);
   display: flex;
   flex-direction: column;
   .heading {

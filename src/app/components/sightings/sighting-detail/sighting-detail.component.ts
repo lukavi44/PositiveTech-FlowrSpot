@@ -20,7 +20,7 @@ export class SightingDetailComponent implements OnInit {
   @Output() sighting: Sighting = new Sighting();
   sightingComments: SightingComment[] = [];
   sightingId: number = -1;
-  @Input() comment: Comment = new Comment();
+  comment: Comment = new Comment();
   constructor(
     private sightingService: SightingsService,
     private route: ActivatedRoute,
@@ -62,9 +62,11 @@ export class SightingDetailComponent implements OnInit {
     this.sightingService
       .postSightingComment(this.sightingId, this.comment)
       .subscribe({
-        next: (data: any) => {
+        next: (data: Comment) => {
           console.log(data);
+          this.comment = data;
         },
+        error: (err) => console.log(err),
       });
   }
 

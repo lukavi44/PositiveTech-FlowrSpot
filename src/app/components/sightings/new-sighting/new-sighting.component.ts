@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Sighting } from 'src/app/model/sightings.model';
 import { SightingsService } from 'src/app/services/sightings.service';
 
@@ -9,8 +11,22 @@ import { SightingsService } from 'src/app/services/sightings.service';
 })
 export class NewSightingComponent implements OnInit {
   @Input() sighting: Sighting = new Sighting();
+  apiLoaded: Observable<boolean>;
 
-  constructor(private sightingService: SightingsService) {}
+  constructor(
+    private sightingService: SightingsService,
+    private httpClient: HttpClient
+  ) {
+    this.apiLoaded = httpClient
+      .jsonp(
+        'https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE',
+        'callback'
+      )
+      .pipe(
+        map(() => true),
+        catchError(() => of(false))
+      );
+  }
 
   ngOnInit(): void {}
 
