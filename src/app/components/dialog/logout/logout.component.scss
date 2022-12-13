@@ -1,3 +1,5 @@
+@import "../../../styles/mixins";
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +10,6 @@
 .mat-dialog-container {
   margin: 0;
   padding: 0 !important;
-  // position: relative;
 }
 .mat-card {
   font-family: "Ubuntu";
@@ -21,6 +22,7 @@
   button.close {
     align-self: flex-end;
     background: #fff;
+    border: none;
   }
 
   .mat-dialog-content {
@@ -76,8 +78,6 @@
           font-weight: 400;
           font-size: 18px;
           line-height: 13px;
-          /* identical to box height, or 72% */
-
           color: #334144;
         }
       }
@@ -87,19 +87,10 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      button {
-        box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
-        border-radius: 3px;
+      @include button-pink {
         width: 50%;
         padding: 25px;
         margin: 40px 0 20px;
-        font-family: "Ubuntu";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 14px;
-        text-align: center;
-        color: #fff;
       }
     }
   }

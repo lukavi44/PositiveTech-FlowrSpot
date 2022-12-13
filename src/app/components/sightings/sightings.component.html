@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="description">
-        {{ readMore ? s.description : (s.description | slice: 0:150) }}
+        {{ readMore ? s.description : (s.description | slice : 0 : 150) }}
         <span *ngIf="s.description.length > 150!; readMore">...</span>
         <a
           href="javascript:;"
@@ -34,8 +34,14 @@
       </div>
     </div>
     <div class="like-comment">
-      <p>{{ s.comments_count }} Comments</p>
-      <p>{{ s.likes_count }} Favorites</p>
+      <div class="like-comment-item">
+        <span class="material-icons">comment</span>
+        <p>{{ s.comments_count }} Comments</p>
+      </div>
+      <div class="like-comment-item">
+        <span class="material-icons">favorite</span>
+        <p>{{ s.likes_count }} Favorites</p>
+      </div>
     </div>
   </div>
 </div>

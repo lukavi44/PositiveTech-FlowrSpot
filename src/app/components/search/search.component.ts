@@ -57,12 +57,12 @@ export class SearchComponent implements OnInit {
   }
 
   private search(term: string): void {
-    // this.flowerService.getFlowersSearch(term).subscribe({
-    //   next: (data: any) => {
-    //     console.log(data);
-    //     this.searchResults = data.flowers;
-    //   },
-    // });
+    this.flowerService.getFlowersSearch(term).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.searchResults = data.flowers;
+      },
+    });
     // Clear results
     this.people$.next(null);
   }

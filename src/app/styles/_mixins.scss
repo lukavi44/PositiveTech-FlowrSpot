@@ -5,18 +5,14 @@
     box-sizing: border-box;
   }
 }
-@mixin laptop {
-  @media screen and (max-width: 1700px) {
-    @content;
-  }
-}
+
 @mixin tablet {
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     @content;
   }
 }
 @mixin mobile {
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 550px) {
     @content;
   }
 }
@@ -41,8 +37,8 @@
 @mixin button-white {
   button {
     border-radius: 3px;
-    border: none;
     padding: 20px;
+    border: none;
     font-family: "Ubuntu";
     font-style: normal;
     font-weight: 500;

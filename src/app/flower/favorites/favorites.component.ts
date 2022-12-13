@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Flower } from 'src/app/model/flower.model';
 import { FlowerService } from 'src/app/services/flower.service';
 
@@ -9,12 +10,18 @@ import { FlowerService } from 'src/app/services/flower.service';
 })
 export class FavoritesComponent implements OnInit {
   favorites: Flower[] = [];
-  favorite: Flower = new Flower();
   flowerId: number = -1;
+  favoriteId: number = -1;
 
-  constructor(private flowerService: FlowerService) {}
+  constructor(
+    private flowerService: FlowerService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    // this.route.params.subscribe((params: Params) => {
+    //   this.flowerId = params['id'];
+    // });
     this.getFavorites();
   }
 
@@ -27,4 +34,6 @@ export class FavoritesComponent implements OnInit {
       error: (err) => console.log(err),
     });
   }
+
+  deleteFavorite(): void {}
 }

@@ -1,8 +1,18 @@
+@import "../../styles/mixins";
+body {
+  @include mobile {
+    width: 48%;
+  }
+}
+
 .flower {
   display: flex;
   position: relative;
   text-align: center;
   height: 350px;
+  @include mobile {
+    width: 100%;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -34,6 +44,9 @@
     border-radius: 3px;
     object-fit: cover;
     position: relative;
+    @include mobile {
+      width: 100%;
+    }
   }
 
   h5 {

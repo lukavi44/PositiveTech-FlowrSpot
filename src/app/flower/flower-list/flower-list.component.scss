@@ -1,8 +1,8 @@
 :host app-search {
-  width: 100%;
   display: flex;
   justify-content: center;
-  .input-container {
-    padding: 3rem 5rem;
-  }
+  margin-top: 3rem;
+}
+.search {
+  padding: 0 15rem;
 }

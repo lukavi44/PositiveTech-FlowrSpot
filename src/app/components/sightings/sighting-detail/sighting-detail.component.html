@@ -27,9 +27,15 @@
             {{ sighting.description }}
           </p>
         </div>
-        <div class="comment-like">
-          <p>{{ sighting.comments_count }} comments</p>
-          <p>{{ sighting.likes_count }} Favorites</p>
+        <div class="like-comment">
+          <div class="like-comment-item">
+            <span class="material-icons">comment</span>
+            <p>{{ sighting.comments_count }} Comments</p>
+          </div>
+          <div class="like-comment-item">
+            <span class="material-icons">favorite</span>
+            <p>{{ sighting.likes_count }} Favorites</p>
+          </div>
         </div>
       </div>
     </div>

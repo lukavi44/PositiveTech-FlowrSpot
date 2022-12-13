@@ -16,6 +16,9 @@
     justify-content: center;
     align-items: center;
     .text-box {
+      @include mobile {
+        width: 80%;
+      }
       h1 {
         font-family: "Montserrat";
         font-style: normal;

@@ -1,6 +1,8 @@
 <header>
   <div class="background">
-    <img src="../../../assets/images/pl-hero.png" alt="" />
+    <img *ngIf="mobile" src="{{ flower.profile_picture }}" alt="" />
+
+    <img *ngIf="!mobile" src="../../../assets/images/pl-hero.png" alt="" />
 
     <div class="flower-header">
       <div class="left">

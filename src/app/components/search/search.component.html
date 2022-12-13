@@ -12,7 +12,7 @@
       <mat-icon>search</mat-icon>
     </button>
   </div>
-  <div class="results">
+  <div class="results" *ngIf="inputValue.length != 0">
     <div class="result" *ngFor="let res of searchResults">
       <p [routerLink]="[res.id]">{{ res.name }}</p>
     </div>

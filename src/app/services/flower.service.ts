@@ -59,14 +59,15 @@ export class FlowerService {
   getFavoriteFlowers(): Observable<Flower[]> {
     return this.http.get(`${baseUrl}/favorites`, httpOptions).pipe(
       map((data: any) => {
-        return data && data.fav_flowers.map((elem: any) => new Flower(elem));
+        console.log({ data });
+        return data && data.fav_flowers.map((elem: Flower) => new Flower(elem));
       })
     );
   }
 
-  postToFavorites(flowerId: number, flower: Flower): Observable<Flower> {
+  postToFavorites(flowerId: number): Observable<Flower> {
     return this.http
-      .post(`${baseUrl}/${flowerId}/favorites`, flower, httpOptions)
+      .post(`${baseUrl}/${flowerId}/favorites`, null, httpOptions)
       .pipe(
         map((data: any) => {
           return new Flower(data);
@@ -79,6 +80,12 @@ export class FlowerService {
       map((data: any) => {
         return data;
       })
+    );
+  }
+
+  deleteFavorite(flowerId: number, favoriteId: number): Observable<Flower> {
+    return this.http.delete<Flower>(
+      `${baseUrl}/${flowerId}/favorites/${favoriteId}`
     );
   }
 }

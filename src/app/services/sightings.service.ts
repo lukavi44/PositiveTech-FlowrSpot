@@ -37,7 +37,7 @@ export class SightingsService {
   }
 
   postSighting(sighting: Sighting): Observable<any> {
-    return this.http.post(baseUrl, sighting, httpOptions).pipe(
+    return this.http.post(baseUrl, sighting).pipe(
       map((data: any) => {
         return new Sighting(data);
       })
@@ -101,9 +101,9 @@ export class SightingsService {
     );
   }
 
-  postSightingComment(sightingId: number, comment: Comment): Observable<any> {
+  postSightingComment(sightingId: number): Observable<any> {
     return this.http
-      .post<Comment>(`${baseUrl}/${sightingId}/comments`, comment, httpOptions)
+      .post<Comment>(`${baseUrl}/${sightingId}/comments`, null, httpOptions)
       .pipe(
         map((response: any) => {
           return new Comment(response);

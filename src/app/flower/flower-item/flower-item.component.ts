@@ -12,6 +12,7 @@ export class FlowerItemComponent implements OnInit {
   @Input() flower: Flower = new Flower();
   flowerId: number = -1;
   @Input() favorites: Flower[] = [];
+  @Input() favorite: Flower = new Flower();
 
   constructor(
     private route: ActivatedRoute,
@@ -24,13 +25,17 @@ export class FlowerItemComponent implements OnInit {
     });
   }
 
-  postFavoriteFlower(id: number): void {
-    this.flowerService.postToFavorites(id, this.flower).subscribe({
+  postFavoriteFlower(): void {
+    this.flowerService.postToFavorites(this.flower.id).subscribe({
       next: (data: Flower) => {
-        this.flower = data;
-        this.favorites.push(this.flower);
+        this.favorite = data;
+        this.favorites.push(this.favorite);
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        if (err.error.error[0] === 'User has already been taken') {
+          alert('This flower has already been declared as favourite');
+        }
+      },
     });
   }
 }

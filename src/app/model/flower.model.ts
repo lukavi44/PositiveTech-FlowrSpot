@@ -8,15 +8,15 @@ export class Flower {
   features: string[];
   description: string;
 
-  constructor(obj?: any) {
-    this.id = (obj && obj.id) || null;
+  constructor(obj?: Flower) {
+    this.id = (obj && obj.id) || 0;
     this.name = (obj && obj.name) || '';
     this.latin_name = (obj && obj.latin_name) || '';
-    this.sightings = (obj && obj.sightings) || null;
+    this.sightings = (obj && obj.sightings) || 0;
     this.profile_picture = (obj && obj.profile_picture) || '';
     this.favorite = (obj && obj.favorite) || false;
-    this.features = (obj && obj.features) || null;
-    this.description = (obj && obj.description) || null;
+    this.features = (obj && obj.features) || [];
+    this.description = (obj && obj.description) || '';
   }
 }
 

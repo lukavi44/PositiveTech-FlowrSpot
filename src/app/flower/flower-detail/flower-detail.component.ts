@@ -11,6 +11,8 @@ import { FlowerService } from 'src/app/services/flower.service';
 export class FlowerDetailComponent implements OnInit {
   flower: Flower = new Flower();
   flowerId: number = -1;
+
+  mobile: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private flowerService: FlowerService
@@ -20,6 +22,10 @@ export class FlowerDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.flowerId = params['id'];
     });
+    if (window.screen.width <= 550) {
+      // 768px portrait
+      this.mobile = true;
+    }
     this.getOneFlower();
   }
 
