@@ -24,6 +24,7 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.userId = params['id'];
+      console.log(this.userId);
     });
     this.getUser();
     this.getUserSightings();

@@ -118,6 +118,9 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    @include tablet {
+      margin-top: 30rem;
+    }
     .header {
       display: flex;
       justify-content: space-between;
@@ -228,4 +231,8 @@
       }
     }
   }
+}
+
+app-geocoding {
+  width: 100%;
 }

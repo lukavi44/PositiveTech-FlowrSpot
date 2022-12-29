@@ -19,7 +19,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getOne(id: number) {
-    return this.http.get<User>(`${baseUrl}/${id}`).pipe(
+    return this.http.get<User>(`${baseUrl}/${id}`, httpOptions).pipe(
       map((response) => {
         ({
           id: response.id,
@@ -34,6 +34,23 @@ export class UserService {
 
   getMyInfo(): Observable<User> {
     return this.http.get(`${baseUrl}/me`, httpOptions).pipe(
+      map((data: any) => {
+        console.log(data, 'iz servisa');
+        return data;
+      })
+    );
+  }
+
+  updateMyInfo(user: User): Observable<User> {
+    return this.http.put(`${baseUrl}/me`, user, httpOptions).pipe(
+      map((data: any) => {
+        return new User(data);
+      })
+    );
+  }
+
+  refreshToken() {
+    return this.http.get(`${baseUrl}/me/refresh`).pipe(
       map((data: any) => {
         return data;
       })

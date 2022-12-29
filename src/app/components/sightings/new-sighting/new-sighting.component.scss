@@ -3,6 +3,9 @@
   font-family: "Ubuntu" !important;
   font-style: normal;
 }
+app-geocoding {
+  width: 100%;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -10,8 +13,7 @@
   position: relative;
   align-items: center;
 
-  header {
-    background-image: url("../../../../assets/images/google-placeholder.png");
+  #map {
     width: 100%;
     height: 400px;
     background-position: center;
@@ -67,7 +69,14 @@
       gap: 20px;
       flex-direction: row;
       justify-content: flex-start;
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+      }
       .form-group {
+        @include mobile {
+          width: 100% !important;
+        }
         input {
           box-sizing: border-box;
           padding: 1rem;
@@ -80,9 +89,12 @@
           width: 55%;
         }
         &:nth-of-type(2) {
-          width: 30%;
+          width: 15%;
         }
         &:nth-of-type(3) {
+          width: 15%;
+        }
+        &:nth-of-type(4) {
           width: 15%;
           input {
             background: #fff;

@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -23,7 +24,8 @@ export class SightingDetailComponent implements OnInit {
   constructor(
     private sightingService: SightingsService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private viewportScroller: ViewportScroller
   ) {
     this.commentForm = fb.group({
       comment: new FormControl(null, [Validators.required]),
@@ -36,6 +38,10 @@ export class SightingDetailComponent implements OnInit {
     });
     this.getSightingComments();
     this.getSighting();
+  }
+
+  goToCommentSection() {
+    this.viewportScroller.scrollToAnchor('form');
   }
 
   getSighting(): void {
@@ -57,14 +63,33 @@ export class SightingDetailComponent implements OnInit {
   }
 
   postComment(): void {
-    let comment = new Comment(this.commentForm.value);
-    this.sightingService.postSightingComment(this.sightingId).subscribe({
-      next: (data: Comment) => {
-        comment = data;
-      },
-      error: (err) => console.log(err),
-    });
+    console.log(this.commentForm.get('comment')?.value, 'forma post com');
+    let comment = this.commentForm.get('comment')?.value;
+
+    this.sightingService
+      .postSightingComment(this.sightingId, { content: comment })
+      .subscribe({
+        next: (data: Comment) => {
+          console.log(data);
+          comment = data;
+          this.getSightingComments();
+        },
+        error: (err) => console.log(err),
+      });
   }
 
-  onSubmit(): void {}
+  removeComment(commId: number) {
+    this.sightingService
+      .deleteSightingComment(this.sightingId, commId)
+      .subscribe({
+        next: (comment: SightingComment) => {
+          let ind = this.sightingComments
+            .map((comm: SightingComment) => comm.id)
+            .indexOf(comment.id);
+          this.sightingComments.splice(ind, 1);
+          this.getSightingComments();
+        },
+        error: (err) => console.log(err),
+      });
+  }
 }

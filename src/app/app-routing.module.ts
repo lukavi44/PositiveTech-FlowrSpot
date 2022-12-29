@@ -6,6 +6,7 @@ import { SettingsComponent } from './components/dialog/settings/settings.compone
 import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
 import { SightingDetailComponent } from './components/sightings/sighting-detail/sighting-detail.component';
 import { SightingListComponent } from './components/sightings/sighting-list/sighting-list.component';
+import { MyPageComponent } from './components/sightings/user-page/my-page/my-page.component';
 import { UserPageComponent } from './components/sightings/user-page/user-page.component';
 import { FavoritesComponent } from './flower/favorites/favorites.component';
 import { FlowerDetailComponent } from './flower/flower-detail/flower-detail.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'flowers/:id', component: FlowerDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'new-account', component: NewAccountComponent },
-  { path: 'user-page', component: UserPageComponent },
+  { path: 'user-page', component: MyPageComponent },
   { path: 'user-page/:id', component: UserPageComponent },
   { path: 'sighting-list', component: SightingListComponent },
   { path: 'settings', component: SettingsComponent },

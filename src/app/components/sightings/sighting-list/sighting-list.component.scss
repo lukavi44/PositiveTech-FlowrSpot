@@ -12,6 +12,9 @@
   @include mobile {
     justify-content: center;
   }
+  @include tablet {
+    justify-content: center;
+  }
   .empty {
     width: 12rem;
   }
@@ -34,10 +37,17 @@
   @include mobile {
     display: none;
   }
+  @include tablet {
+    display: none;
+  }
 }
 
 .btn-1 {
+  height: 70px;
   @include mobile {
+    display: none;
+  }
+  @include tablet {
     display: none;
   }
 }
@@ -55,4 +65,13 @@
   display: flex;
   justify-content: center;
   margin: 2rem 0;
+}
+
+.col-3 {
+  @include tablet {
+    width: 50%;
+  }
+  @include mobile {
+    width: 100%;
+  }
 }

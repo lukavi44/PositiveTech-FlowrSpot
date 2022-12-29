@@ -136,3 +136,12 @@ header {
     }
   }
 }
+
+.col-3 {
+  @include tablet {
+    width: 50%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+}

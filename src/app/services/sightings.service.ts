@@ -1,8 +1,4 @@
-import {
-  HttpClient,
-  HttpHeaderResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import {
@@ -11,12 +7,14 @@ import {
   SightingLike,
 } from '../model/sightings.model';
 
-const baseUrl = 'https://flowrspot-api.herokuapp.com//api/v1/sightings';
+const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/sightings';
 const httpOptions = {
   headers: new HttpHeaders({
-    Authorization: `Bearer ${
-      JSON.parse(localStorage.getItem('auth_data') || '').auth_token
-    }`,
+    Authorization: localStorage.getItem('auth_data')
+      ? `Bearer ${
+          JSON.parse(localStorage.getItem('auth_data') || '').auth_token
+        }`
+      : '',
   }),
 };
 
@@ -36,8 +34,9 @@ export class SightingsService {
     );
   }
 
-  postSighting(sighting: Sighting): Observable<any> {
-    return this.http.post(baseUrl, sighting).pipe(
+  postSighting(sighting: any): Observable<Sighting> {
+    console.log('SIGHTING', sighting);
+    return this.http.post<Sighting>(baseUrl, sighting, httpOptions).pipe(
       map((data: any) => {
         return new Sighting(data);
       })
@@ -68,7 +67,10 @@ export class SightingsService {
 
   getUserSightings(id: number): Observable<Sighting[]> {
     return this.http
-      .get(`https://flowrspot-api.herokuapp.com//api/v1/users/${id}/sightings`)
+      .get(
+        `https://flowrspot-api.herokuapp.com//api/v1/users/${id}/sightings`,
+        httpOptions
+      )
       .pipe(
         map((data: any) => {
           return (
@@ -78,6 +80,20 @@ export class SightingsService {
         })
       );
   }
+
+  getSightingLikes(id: number): Observable<SightingLike[]> {
+    return this.http.get(`${baseUrl}/${id}/likes`).pipe(
+      map((data: any) => {
+        return (
+          (data && data.likes.map((elem: any) => new SightingLike(elem))) || []
+        );
+      })
+    );
+  }
+
+  deleteSightingLike(sightingId: number) {}
+
+  postLike(sightingId: number) {}
 
   getSightingComments(id: number): Observable<SightingComment[]> {
     return this.http.get(`${baseUrl}/${id}/comments`).pipe(
@@ -91,22 +107,48 @@ export class SightingsService {
     );
   }
 
-  getSightingLikes(id: number): Observable<SightingLike[]> {
-    return this.http.get(`${baseUrl}/${id}/likes`).pipe(
-      map((data: any) => {
-        return (
-          (data && data.likes.map((elem: any) => new SightingLike(elem))) || []
-        );
-      })
-    );
-  }
-
-  postSightingComment(sightingId: number): Observable<any> {
+  postSightingComment(sightingId: number, comm: any): Observable<Comment> {
     return this.http
-      .post<Comment>(`${baseUrl}/${sightingId}/comments`, null, httpOptions)
+      .post<Comment>(`${baseUrl}/${sightingId}/comments`, comm, httpOptions)
       .pipe(
         map((response: any) => {
           return new Comment(response);
+        })
+      );
+  }
+
+  deleteSightingComment(
+    sightingId: number,
+    commId: number
+  ): Observable<SightingComment> {
+    return this.http
+      .delete(`${baseUrl}/${sightingId}/comments/${commId}`, httpOptions)
+      .pipe(
+        map((data: any) => {
+          return new SightingComment(data);
+        })
+      );
+  }
+
+  deleteSighting(sightingId: number): Observable<Sighting> {
+    return this.http
+      .delete<Sighting>(`${baseUrl}/${sightingId}`, httpOptions)
+      .pipe(
+        map((data: Sighting) => {
+          return new Sighting(data);
+        })
+      );
+  }
+
+  updateSighting(
+    sightingId: number,
+    updatedSighting: Sighting
+  ): Observable<Sighting> {
+    return this.http
+      .put<Sighting>(`${baseUrl}/${sightingId}`, updatedSighting, httpOptions)
+      .pipe(
+        map((data: Sighting) => {
+          return new Sighting(data);
         })
       );
   }

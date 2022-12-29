@@ -17,7 +17,7 @@ body {
     width: 100%;
     padding: 1rem;
     @include mobile {
-      min-width: 400px;
+      min-width: fit-content;
     }
   }
   button {

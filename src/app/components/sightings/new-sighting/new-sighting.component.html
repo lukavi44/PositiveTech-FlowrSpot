@@ -1,14 +1,13 @@
 <div class="container">
-  <header>
-    <button class="btn" id="preview">View on Google Mapse</button>
-  </header>
+  <app-geocoding></app-geocoding>
+
   <div class="new-sighting">
     <div class="heading">
       <h2>Add New Sighting</h2>
       <span>Explore between more than 8,427 sightings</span>
     </div>
     <div class="form">
-      <form novalidate #form="ngForm">
+      <form novalidate #form="ngForm" enctype="multipart/form-data">
         <div class="top">
           <div class="form-group">
             <input
@@ -22,14 +21,24 @@
           <div class="form-group">
             <input
               type="text"
-              id="coordinates"
-              name="coordinates"
-              placeholder="Coordinates of the sighting"
+              id="latitude"
+              name="latitude"
+              placeholder="Latitude of the sighting"
               [(ngModel)]="sighting.latitude"
             />
           </div>
           <div class="form-group">
             <input
+              type="text"
+              id="longitude"
+              name="longitude"
+              placeholder="Longitude of the sighting"
+              [(ngModel)]="sighting.longitude"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              (change)="this.onFilechange($event)"
               type="file"
               name="add"
               id="add"

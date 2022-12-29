@@ -31,6 +31,8 @@ import { SightingDetailComponent } from './components/sightings/sighting-detail/
 import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
 import { FavoritesComponent } from './flower/favorites/favorites.component';
 import { SearchComponent } from './components/search/search.component';
+import { GeocodingComponent } from './components/geocoding/geocoding.component';
+import { MyPageComponent } from './components/sightings/user-page/my-page/my-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { SearchComponent } from './components/search/search.component';
     NewSightingComponent,
     FavoritesComponent,
     SearchComponent,
+    GeocodingComponent,
+    MyPageComponent,
   ],
   imports: [
     BrowserModule,

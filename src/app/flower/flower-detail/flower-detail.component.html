@@ -14,7 +14,11 @@
         </div>
       </div>
       <div class="right">
-        <button type="button" [routerLink]="['/new-sighting']">
+        <button
+          type="button"
+          [routerLink]="['/new-sighting']"
+          [state]="{ data: flowerId }"
+        >
           +Add New Sighting
         </button>
       </div>
@@ -34,4 +38,9 @@
   </div>
 </div>
 <hr />
-<app-sightings></app-sightings>
+
+<div class="row">
+  <div class="col-3" *ngFor="let sighting of flowerSightings">
+    <app-sightings [sighting]="sighting"></app-sightings>
+  </div>
+</div>

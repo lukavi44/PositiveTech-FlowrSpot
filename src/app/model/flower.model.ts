@@ -27,3 +27,15 @@ export class FlowerList {
     this.flowers = (obj && obj.flowers) || [];
   }
 }
+
+export class FavoriteFlower {
+  id: number;
+  user_id: number;
+  flower: Flower;
+
+  constructor(obj?: any) {
+    this.id = (obj && obj.id) || null;
+    this.user_id = (obj && obj.user_id) || null;
+    this.flower = (obj && obj.flower) || null;
+  }
+}

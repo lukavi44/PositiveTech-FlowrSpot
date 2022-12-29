@@ -1,15 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Flower } from '../model/flower.model';
+import { FavoriteFlower, Flower } from '../model/flower.model';
+import { Sighting } from '../model/sightings.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/flowers';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    Authorization: `Bearer ${
-      JSON.parse(localStorage.getItem('auth_data') || '').auth_token
-    }`,
+    Authorization: localStorage.getItem('auth_data')
+      ? `Bearer ${
+          JSON.parse(localStorage.getItem('auth_data') || '').auth_token
+        }`
+      : '',
   }),
 };
 
@@ -24,6 +27,16 @@ export class FlowerService {
       map((data: any) => {
         return (
           (data && data.flowers.map((elem: any) => new Flower(elem))) || []
+        );
+      })
+    );
+  }
+
+  getFlowerSightings(flowerId: number): Observable<Sighting[]> {
+    return this.http.get(`${baseUrl}/${flowerId}/sightings`).pipe(
+      map((data: any) => {
+        return (
+          (data && data.sightings.map((elem: any) => new Sighting(elem))) || []
         );
       })
     );
@@ -56,21 +69,21 @@ export class FlowerService {
     );
   }
 
-  getFavoriteFlowers(): Observable<Flower[]> {
+  getFavoriteFlowers(): Observable<FavoriteFlower[]> {
     return this.http.get(`${baseUrl}/favorites`, httpOptions).pipe(
       map((data: any) => {
         console.log({ data });
-        return data && data.fav_flowers.map((elem: Flower) => new Flower(elem));
+        return data;
       })
     );
   }
 
-  postToFavorites(flowerId: number): Observable<Flower> {
+  postToFavorites(flowerId: number): Observable<FavoriteFlower> {
     return this.http
       .post(`${baseUrl}/${flowerId}/favorites`, null, httpOptions)
       .pipe(
         map((data: any) => {
-          return new Flower(data);
+          return new FavoriteFlower(data);
         })
       );
   }
@@ -83,9 +96,19 @@ export class FlowerService {
     );
   }
 
-  deleteFavorite(flowerId: number, favoriteId: number): Observable<Flower> {
-    return this.http.delete<Flower>(
-      `${baseUrl}/${flowerId}/favorites/${favoriteId}`
-    );
+  deleteFavorite(
+    flowerId: number,
+    favoriteId: number
+  ): Observable<FavoriteFlower> {
+    return this.http
+      .delete<FavoriteFlower>(
+        `${baseUrl}/${flowerId}/favorites/${favoriteId}`,
+        httpOptions
+      )
+      .pipe(
+        map((data: any) => {
+          return data;
+        })
+      );
   }
 }

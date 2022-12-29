@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 :host app-search {
   display: flex;
   justify-content: center;
@@ -5,4 +7,7 @@
 }
 .search {
   padding: 0 15rem;
+  @include mobile {
+    padding: 0 2rem;
+  }
 }

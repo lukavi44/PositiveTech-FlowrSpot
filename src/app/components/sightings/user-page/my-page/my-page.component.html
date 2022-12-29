@@ -8,9 +8,8 @@
   </div>
   <button type="button">Report</button>
 </div>
-
 <div class="row">
-  <div class="col-3" *ngFor="let sighting of userSightings">
+  <div class="col-3" *ngFor="let sighting of sightings">
     <app-sightings [sighting]="sighting"></app-sightings>
   </div>
 </div>

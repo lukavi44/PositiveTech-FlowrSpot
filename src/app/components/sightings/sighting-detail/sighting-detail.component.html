@@ -1,11 +1,12 @@
 <div class="container">
   <div class="container-1">
-    <header>
-      <div class="buttons">
+    <app-geocoding></app-geocoding>
+
+    <!-- <div class="buttons">
         <button class="btn" id="preview">View on Google Maps</button
         ><button class="btn" id="report">Report</button>
-      </div>
-    </header>
+      </div> -->
+
     <div class="sighting-info">
       <div class="left">
         <img src="{{ sighting.picture }}" alt="" />
@@ -19,7 +20,9 @@
           />
           <div class="text">
             <h3>{{ sighting.name }}</h3>
-            <span>by {{ sighting.user["full_name"] }}</span>
+            <span [routerLink]="['/user-page', sighting.user.id]"
+              >by {{ sighting.user["full_name"] }}</span
+            >
           </div>
         </div>
         <div class="description">
@@ -43,7 +46,14 @@
   <div class="comment-section">
     <div class="header">
       <h3>{{ sighting.comments_count }} Comments</h3>
-      <button class="btn" id="addComment">Add Comment</button>
+      <button
+        class="btn"
+        id="addComment"
+        (click)="goToCommentSection()"
+        fragment="form"
+      >
+        Add Comment
+      </button>
     </div>
     <div class="comments" *ngFor="let comm of sightingComments">
       <div class="comment">
@@ -57,7 +67,11 @@
             <h3>{{ sighting.name }}</h3>
             <span> 4 days ago</span>
           </div>
+          <button class="btn btn-dark" (click)="removeComment(comm.id)">
+            Remove
+          </button>
         </div>
+
         <div class="comment-text">
           <p>
             {{ comm.content }}
@@ -65,8 +79,8 @@
         </div>
       </div>
     </div>
-    <div class="form">
-      <form [formGroup]="commentForm" class="form" (ngSubmit)="postComment()">
+    <div class="form" id="form">
+      <form [formGroup]="commentForm" class="form">
         <textarea
           name="writeComment"
           id="writeComment"
@@ -75,7 +89,9 @@
           placeholder="Write a comment..."
           formControlName="comment"
         ></textarea>
-        <button type="submit" name="publish">Publish Comment</button>
+        <button type="submit" name="publish" (click)="postComment()">
+          Publish Comment
+        </button>
       </form>
     </div>
   </div>

@@ -8,7 +8,11 @@
     + Add New Sighting
   </button>
 </div>
-<app-sightings></app-sightings>
+<div class="row">
+  <div class="col-3" *ngFor="let sighting of sightings">
+    <app-sightings [sighting]="sighting"></app-sightings>
+  </div>
+</div>
 <div class="btn-container">
   <button class="btn btn-2" [routerLink]="['/new-sighting']">
     + Add New Sighting
