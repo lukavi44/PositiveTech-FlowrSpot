@@ -5,14 +5,12 @@ import { FavoriteFlower, Flower } from '../model/flower.model';
 import { Sighting } from '../model/sightings.model';
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/flowers';
-
+console.log(localStorage.getItem('auth_data'), 'loogisa');
 const httpOptions = {
   headers: new HttpHeaders({
-    Authorization: localStorage.getItem('auth_data')
-      ? `Bearer ${
-          JSON.parse(localStorage.getItem('auth_data') || '').auth_token
-        }`
-      : '',
+    Authorization: `Bearer ${
+      JSON.parse(localStorage.getItem('auth_data') || '{}')?.auth_token || ''
+    }`,
   }),
 };
 

@@ -10,11 +10,9 @@ import {
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/sightings';
 const httpOptions = {
   headers: new HttpHeaders({
-    Authorization: localStorage.getItem('auth_data')
-      ? `Bearer ${
-          JSON.parse(localStorage.getItem('auth_data') || '').auth_token
-        }`
-      : '',
+    Authorization: `Bearer ${
+      JSON.parse(localStorage.getItem('auth_data') || '{}')?.auth_token || ''
+    }`,
   }),
 };
 

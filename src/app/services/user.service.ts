@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { User, UserRegister } from '../model/user.model';
+console.log(localStorage.getItem('auth_data'), 'loogisa');
 
 const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/users';
 const httpOptions = {
   headers: new HttpHeaders({
     Authorization: `Bearer ${
-      JSON.parse(localStorage.getItem('auth_data') || '').auth_token
+      JSON.parse(localStorage.getItem('auth_data') || '{}')?.auth_token || ''
     }`,
   }),
 };
