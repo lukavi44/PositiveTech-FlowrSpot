@@ -1,0 +1,44 @@
+<mat-card>
+  <button
+    class="close"
+    mat-icon-button
+    aria-label="close dialog"
+    mat-dialog-close
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-dialog-content>
+    <div class="user-top">
+      <div class="img-container">
+        <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
+      </div>
+      <div class="heading">
+        <h2 mat-dialog-title>
+          {{ loggedUser.first_name }} {{ loggedUser.last_name }}
+        </h2>
+        <span>47 sightings</span>
+      </div>
+    </div>
+    <div class="user-bottom">
+      <div class="info-group">
+        <mat-label class="label">First Name</mat-label>
+        <p>{{ loggedUser.first_name }}</p>
+      </div>
+      <div class="info-group">
+        <mat-label class="label">Last Name</mat-label>
+        <p>{{ loggedUser.last_name }}</p>
+      </div>
+      <div class="info-group">
+        <mat-label class="label">Date of Birth</mat-label>
+        <p>February 2, 1996</p>
+      </div>
+      <div class="info-group">
+        <mat-label class="label">Email Address</mat-label>
+        <p>example@email.com</p>
+      </div>
+    </div>
+    <mat-dialog-actions>
+      <button mat-raised-button id="logout" (click)="logout()">Logout</button>
+    </mat-dialog-actions>
+  </mat-dialog-content>
+</mat-card>

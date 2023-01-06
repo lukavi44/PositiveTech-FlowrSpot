@@ -1,12 +1,26 @@
+@import "../styles/mixins";
+
 .container {
   padding: 20px;
-  margin-top: 69px;
+  margin-top: 60px;
   .flower-holder {
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
+  }
+}
+
+@include mobile {
+  :host app-flower-item {
+    width: 48%;
+  }
+  .container {
+    .flower-holder {
+      width: 100%;
+      flex-direction: row;
+    }
   }
 }

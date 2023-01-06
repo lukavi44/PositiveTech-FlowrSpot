@@ -1,13 +1,8 @@
-<head>
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
-</head>
-
 <nav class="nav navbar">
   <div class="logo">
-    <a><img src="../../assets/images/logo/old.png" alt="logo" /></a>
+    <a routerLink="/home"
+      ><img src="../../assets/images/logo/old.png" alt="logo"
+    /></a>
   </div>
   <button class="burger" (click)="toggleMenu()">
     <i class="material-icons"> {{ isMenuOpen ? "close" : "menu" }} </i>
@@ -15,19 +10,36 @@
 
   <ul class="list" [class.is-open]="isMenuOpen">
     <li class="list-item">
-      <a>Flowers</a>
+      <a [routerLink]="['flowers']">Flowers</a>
     </li>
     <li class="list-item">
-      <a>Latest Sightings</a>
+      <a [routerLink]="['sighting-list']">Latest Sightings</a>
     </li>
-    <li class="list-item">
-      <a>Favorites</a>
+    <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
+      <a [routerLink]="['flowers/favorites']">Favorites</a>
     </li>
-    <li class="list-item">
-      <a>Login</a>
+    <li class="list-item" *ngIf="!(auth.isLoggedIn$ | async)">
+      <a (click)="openLoginDialog()">Login</a>
     </li>
-    <li class="list-item">
-      <button type="button" class="btn btn-danger">New Account</button>
+    <li class="list-item" *ngIf="auth.isLoggedIn$ | async">
+      <a [routerLink]="['/user-page']"> Luka </a>
+    </li>
+    <li class="list-item" *ngIf="!(auth.isLoggedIn$ | async)">
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="openRegisterDialog()"
+      >
+        New Account
+      </button>
+    </li>
+    <li *ngIf="auth.isLoggedIn$ | async">
+      <img
+        src="../../assets/images/CVslika.jpg"
+        alt=""
+        width="30px"
+        (click)="openUserInfoDialog()"
+      />
     </li>
   </ul>
 </nav>

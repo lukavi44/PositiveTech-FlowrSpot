@@ -1,0 +1,65 @@
+@import "../../../../styles/mixins";
+
+* {
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 25px;
+  margin: 4rem 0 2rem !important;
+  background-color: #fff;
+  .user-info {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: flex-end;
+    img {
+      border-radius: 50%;
+      width: 80px;
+      height: 88px;
+      object-fit: fill;
+    }
+    .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      h2 {
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 25px;
+        color: #334144;
+      }
+      span {
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 13px;
+        color: #949ea0;
+      }
+    }
+  }
+  @include button-pink {
+    width: 150px;
+    height: 65px;
+    @include mobile {
+      align-self: flex-start;
+    }
+  }
+}
+
+.col-3 {
+  @include tablet {
+    width: 33%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+}

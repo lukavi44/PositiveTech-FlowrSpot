@@ -16,6 +16,9 @@
     justify-content: center;
     align-items: center;
     .text-box {
+      @include mobile {
+        width: 80%;
+      }
       h1 {
         font-family: "Montserrat";
         font-style: normal;
@@ -37,22 +40,15 @@
         opacity: 0.7;
         margin: 15px 0 45px;
       }
-      input[placeholder] {
-        font-family: "Ubuntu";
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 18px;
-        padding: 20px;
-        color: #034a58;
-      }
-      input {
-        background: #ffffff;
-        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
-        border-radius: 3px;
-        width: 600px;
-        height: 70px;
-        border-radius: 3px;
+    }
+  }
+}
+:host app-search {
+  .results {
+    overflow: scroll;
+    .result {
+      p {
+        color: #ffffff;
       }
     }
   }
