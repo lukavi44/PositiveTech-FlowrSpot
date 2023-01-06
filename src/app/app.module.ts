@@ -27,6 +27,12 @@ import { FlowerListComponent } from './flower/flower-list/flower-list.component'
 import { FlowerDetailComponent } from './flower/flower-detail/flower-detail.component';
 import { SightingListComponent } from './components/sightings/sighting-list/sighting-list.component';
 import { SettingsComponent } from './components/dialog/settings/settings.component';
+import { SightingDetailComponent } from './components/sightings/sighting-detail/sighting-detail.component';
+import { NewSightingComponent } from './components/sightings/new-sighting/new-sighting.component';
+import { FavoritesComponent } from './flower/favorites/favorites.component';
+import { SearchComponent } from './components/search/search.component';
+import { GeocodingComponent } from './components/geocoding/geocoding.component';
+import { MyPageComponent } from './components/sightings/user-page/my-page/my-page.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +50,12 @@ import { SettingsComponent } from './components/dialog/settings/settings.compone
     FlowerDetailComponent,
     SightingListComponent,
     SettingsComponent,
+    SightingDetailComponent,
+    NewSightingComponent,
+    FavoritesComponent,
+    SearchComponent,
+    GeocodingComponent,
+    MyPageComponent,
   ],
   imports: [
     BrowserModule,

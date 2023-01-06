@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Flower } from '../model/flower.model';
 import { FlowerService } from '../services/flower.service';
 
@@ -17,7 +17,7 @@ export class FlowerComponent implements OnInit {
   }
 
   getFlowers() {
-    this.flowerService.getRandomFlowers().subscribe({
+    this.flowerService.getFlowers().subscribe({
       next: (data: Flower[]) => {
         console.log(data);
         this.flowers = data;

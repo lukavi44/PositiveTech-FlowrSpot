@@ -5,7 +5,7 @@ export class Sighting {
   id: number;
   name: string;
   description: string;
-  picture: string;
+  picture: any;
   likes_count: number;
   comments_count: number;
   created_at: string;
@@ -17,9 +17,9 @@ export class Sighting {
     this.id = (obj && obj.id) || null;
     this.name = (obj && obj.name) || '';
     this.description = (obj && obj.description) || '';
-    this.latitude = (obj && obj.latitude) || 0;
-    this.longitude = (obj && obj.longitude) || 0;
-    this.picture = (obj && obj.picture) || null;
+    this.latitude = (obj && obj.latitude) || null;
+    this.longitude = (obj && obj.longitude) || null;
+    this.picture = (obj && obj.picture) || '';
     this.likes_count = (obj && obj.likes_count) || 0;
     this.comments_count = (obj && obj.comments_count) || 0;
     this.created_at = (obj && obj.created_at) || null;

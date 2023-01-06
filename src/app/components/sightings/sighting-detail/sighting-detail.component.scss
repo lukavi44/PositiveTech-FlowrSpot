@@ -1,0 +1,238 @@
+@import "../../../styles/mixins";
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+  padding: 0 !important;
+  .container-1 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    header {
+      background-image: url("../../../../assets/images/google-placeholder.png");
+      width: 100%;
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 6rem 3rem;
+      position: relative;
+      .buttons {
+        display: flex;
+        gap: 20px;
+
+        @include button-pink {
+          z-index: 1;
+        }
+
+        #report {
+          background: #fff;
+          color: #eaa79e;
+          box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+    .sighting-info {
+      font-family: "Ubuntu";
+      font-style: normal;
+      width: 96%;
+      position: absolute;
+      top: 90%;
+      margin: 0 1rem;
+      display: flex;
+      padding: 30px;
+      gap: 3rem;
+      background: #fff;
+      box-shadow: 15px -35px 100px 80px rgba(227, 222, 222, 0.95);
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        color: #949ea0;
+        text-align: justify;
+        .heading {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+
+          img {
+            border-radius: 50%;
+            width: 66px;
+            height: 60px;
+            object-fit: fill;
+          }
+          .text {
+            display: flex;
+            flex-direction: column;
+            h3 {
+              margin: 0 !important;
+              color: #334144;
+              font-family: "Ubuntu";
+              font-size: 25px;
+            }
+          }
+        }
+        .description {
+          padding-bottom: 20px;
+          border-bottom: 1px solid #949ea0;
+        }
+        .like-comment {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+          padding-bottom: 1rem;
+
+          .like-comment-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            p {
+              font-family: "Ubuntu";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 12px;
+              text-align: justify;
+              color: #949ea0;
+              margin: 0;
+            }
+            span {
+              color: #949ea0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .comment-section {
+    padding: 0 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include tablet {
+      margin-top: 30rem;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        font-family: "Ubuntu";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 25px;
+        color: #334144;
+      }
+      @include button-white {
+      }
+    }
+    .comments {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      .comment {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        color: #949ea0;
+        text-align: justify;
+        padding: 2rem 0;
+        border-bottom: 1px solid #33414473;
+        .heading {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+
+          img {
+            border-radius: 50%;
+            width: 66px;
+            height: 60px;
+            object-fit: fill;
+          }
+          .text {
+            display: flex;
+            flex-direction: column;
+            h3 {
+              margin: 0 !important;
+              color: #334144;
+              font-family: "Ubuntu";
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+    .form {
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2rem;
+        textarea {
+          width: 100%;
+          background: #f5f6f7;
+          border: 1px solid #dfe5ea;
+          border-radius: 3px;
+          padding: 1rem;
+        }
+
+        @include button-pink {
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .container {
+    .container-1 {
+      .sighting-info {
+        top: 90%;
+        margin: 0 1rem;
+        flex-direction: column;
+        padding: 30px;
+        gap: 3rem;
+        .left {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .right {
+          .heading {
+            img {
+            }
+            .text {
+              h3 {
+              }
+            }
+          }
+          .description {
+          }
+          .like-comment {
+            .like-comment-item {
+              p {
+              }
+              span {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+app-geocoding {
+  width: 100%;
+}

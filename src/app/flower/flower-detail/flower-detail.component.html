@@ -1,18 +1,27 @@
 <header>
   <div class="background">
-    <img src="../../../assets/images/pl-hero.png" alt="" />
-  </div>
-  <div class="flower-header">
-    <div class="left">
-      <img src="{{ flower.profile_picture }}" alt="" />
-      <div class="text">
-        <p>{{ flower.sightings }} sightings</p>
-        <h2>{{ flower.name }}</h2>
-        <span>{{ flower.latin_name }}</span>
+    <img *ngIf="mobile" src="{{ flower.profile_picture }}" alt="" />
+
+    <img *ngIf="!mobile" src="../../../assets/images/pl-hero.png" alt="" />
+
+    <div class="flower-header">
+      <div class="left">
+        <img src="{{ flower.profile_picture }}" alt="" />
+        <div class="text">
+          <p>{{ flower.sightings }} sightings</p>
+          <h2>{{ flower.name }}</h2>
+          <span>{{ flower.latin_name }}</span>
+        </div>
       </div>
-    </div>
-    <div class="right">
-      <button type="button">+Add New Sighting</button>
+      <div class="right">
+        <button
+          type="button"
+          [routerLink]="['/new-sighting']"
+          [state]="{ data: flowerId }"
+        >
+          +Add New Sighting
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -29,4 +38,9 @@
   </div>
 </div>
 <hr />
-<app-sightings></app-sightings>
+
+<div class="row">
+  <div class="col-3" *ngFor="let sighting of flowerSightings">
+    <app-sightings [sighting]="sighting"></app-sightings>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Sighting } from 'src/app/model/sightings.model';
 import { User } from 'src/app/model/user.model';
 import { SightingsService } from 'src/app/services/sightings.service';
@@ -9,40 +9,19 @@ import { SightingsService } from 'src/app/services/sightings.service';
   styleUrls: ['./sightings.component.scss'],
 })
 export class SightingsComponent implements OnInit {
+  @Input()
   sightings: Sighting[] = [];
-  userSightings: Sighting[] = [];
-
-  userId: number = -1;
-  user: User = new User();
+  @Input()
+  sighting: Sighting = new Sighting();
 
   placeholderPic = '';
   readMore: boolean = false;
 
   constructor(private sightingService: SightingsService) {}
 
-  ngOnInit(): void {
-    this.getAllSightings();
-  }
+  ngOnInit(): void {}
 
-  getUserSightings() {
-    this.sightingService.getUserSightings(this.userId).subscribe({
-      next: (data: Sighting[]) => {
-        this.userSightings = data;
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
-  }
-
-  getAllSightings() {
-    this.sightingService.getAllSightings().subscribe({
-      next: (data: Sighting[]) => {
-        this.sightings = data;
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
+  likeSighting() {
+    this.sightingService.postLike(this.sighting.id);
   }
 }

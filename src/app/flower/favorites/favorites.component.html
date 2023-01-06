@@ -1,0 +1,9 @@
+<div class="favorites">
+  <div class="favorite-flower" *ngFor="let fav of favorites">
+    <app-flower-item
+      (onRemove)="onRemoveFavorite($event)"
+      [flower]="fav.flower"
+    >
+    </app-flower-item>
+  </div>
+</div>

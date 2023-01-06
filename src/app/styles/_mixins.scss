@@ -5,33 +5,66 @@
     box-sizing: border-box;
   }
 }
+
 @mixin tablet {
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     @content;
   }
 }
 @mixin mobile {
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 550px) {
     @content;
   }
 }
 
-@mixin button {
+@mixin button-pink {
   button {
-    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
     border-radius: 3px;
-    padding: 25px;
-    margin: 40px 0 20px;
+    border: none;
+    padding: 20px;
     font-family: "Ubuntu";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 14px;
     text-align: center;
+    background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
     color: #fff;
     @content;
   }
 }
+@mixin button-white {
+  button {
+    border-radius: 3px;
+    padding: 20px;
+    border: none;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 15px 20px rgba(234, 168, 159, 0.2);
+    color: #eaa79e;
+    @content;
+  }
+}
 
-@mixin header {
+@mixin row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin col {
+  width: 100%;
+}
+@mixin col-3 {
+  width: 30%;
+}
+
+@mixin col-4 {
+  width: 25%;
 }

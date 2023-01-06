@@ -9,21 +9,7 @@ import { Flower } from 'src/app/model/flower.model';
   styleUrls: ['./flower-list.component.scss'],
 })
 export class FlowerListComponent implements OnInit {
-  @Input() searchForm: FormGroup;
-
-  flowers = ['Vrednoki jeticnik', 'Ballon Flower', 'Julijski mak'];
-  searchInput = '';
-
-  constructor(private router: Router, fb: FormBuilder) {
-    this.searchForm = fb.group({
-      searchInput: new FormControl(''),
-    });
-  }
+  constructor() {}
 
   ngOnInit(): void {}
-
-  onSearchSubmit(): void {
-    this.router.navigateByUrl('/api/v1/flowers/search/' + this.searchForm); //treba mi index flowera
-    // console.log(this.searchForm.value);
-  }
 }

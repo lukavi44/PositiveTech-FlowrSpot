@@ -1,41 +1,56 @@
-<div class="sighting-list">
-  <div class="sighting-holder" *ngFor="let s of sightings">
-    <img
-      src="{{ s.picture }}"
-      alt=""
-      onerror="this.src= '../../../assets/images/placeholder.png'; "
-      [routerLink]="['/flowers/', s.flower.id]"
-    />
-    <div class="bottom">
-      <div class="user-info">
-        <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
-        <div class="heading">
-          <h2>{{ s.name }}</h2>
-          <span [routerLink]="['/user-page', s.user.id]"
-            >By {{ s.user.full_name }}</span
-          >
-        </div>
-      </div>
-      <div class="description">
-        {{ readMore ? s.description : (s.description | slice: 0:150) }}
-        <span *ngIf="s.description.length > 150!; readMore">...</span>
-        <a
-          href="javascript:;"
-          *ngIf="s.description.length > 150 && !readMore"
-          (click)="readMore = true"
-          >[Read More]</a
-        >
-        <a
-          href="javascript:;"
-          *ngIf="s.description.length > 150 && readMore"
-          (click)="readMore = false"
-          >[Show Less]</a
+<div class="sighting-holder">
+  <img
+    src="{{ sighting.picture }}"
+    alt=""
+    onerror="this.src= '../../../assets/images/placeholder.png'; "
+    [routerLink]="['/sighting/', sighting.id]"
+  />
+  <div class="bottom">
+    <div class="user-info">
+      <img src="../../../assets/images/CVslika.jpg" alt="" width="50px" />
+      <div class="heading">
+        <h2>{{ sighting.name }}</h2>
+        <span [routerLink]="['/user-page', sighting.user.id]"
+          >By {{ sighting.user.full_name }}</span
         >
       </div>
     </div>
-    <div class="like-comment">
-      <p>{{ s.comments_count }} Comments</p>
-      <p>{{ s.likes_count }} Favorites</p>
+    <div class="description">
+      {{
+        readMore
+          ? sighting.description
+          : (sighting.description | slice : 0 : 150)
+      }}
+      <span *ngIf="sighting.description.length > 150!; readMore">...</span>
+      <a
+        href="javascript:;"
+        *ngIf="sighting.description.length > 150 && !readMore"
+        (click)="readMore = true"
+        >[Read More]</a
+      >
+      <a
+        href="javascript:;"
+        *ngIf="sighting.description.length > 150 && readMore"
+        (click)="readMore = false"
+        >[Show Less]</a
+      >
+    </div>
+  </div>
+  <div class="like-comment">
+    <div class="like-comment-item">
+      <span
+        class="material-icons"
+        id="comment"
+        [routerLink]="['/sighting', sighting.id]"
+        >comment</span
+      >
+      <p>{{ sighting.comments_count }} Comments</p>
+    </div>
+    <div class="like-comment-item">
+      <span class="material-icons" id="favorite" (click)="likeSighting()"
+        >favorite</span
+      >
+      <p>{{ sighting.likes_count }} Favorites</p>
     </div>
   </div>
 </div>

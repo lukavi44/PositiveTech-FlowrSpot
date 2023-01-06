@@ -1,0 +1,121 @@
+@import "../../../styles/mixins";
+* {
+  font-family: "Ubuntu" !important;
+  font-style: normal;
+}
+app-geocoding {
+  width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  position: relative;
+  align-items: center;
+
+  #map {
+    width: 100%;
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 4rem 3rem;
+    position: relative;
+
+    @include button-pink {
+      z-index: 1;
+    }
+  }
+}
+.new-sighting {
+  width: 96%;
+  position: absolute;
+  top: 86%;
+  display: flex;
+  padding: 30px;
+  margin: 1rem;
+  gap: 3rem;
+  background: #fff;
+  box-shadow: 0px -20px 65px 40px rgb(227 222 222 / 95%);
+  display: flex;
+  flex-direction: column;
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    color: #949ea0;
+    h2 {
+      font-size: 40px;
+      line-height: 40px;
+      text-align: center;
+    }
+    span {
+      opacity: 0.7;
+      font-size: 17px;
+      line-height: 17px;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .top {
+      width: 100%;
+      display: flex;
+      gap: 20px;
+      flex-direction: row;
+      justify-content: flex-start;
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-group {
+        @include mobile {
+          width: 100% !important;
+        }
+        input {
+          box-sizing: border-box;
+          padding: 1rem;
+          background: #f5f6f7;
+          border: 1px solid #dfe5ea;
+          border-radius: 3px;
+          width: 100%;
+        }
+        &:first-of-type {
+          width: 55%;
+        }
+        &:nth-of-type(2) {
+          width: 15%;
+        }
+        &:nth-of-type(3) {
+          width: 15%;
+        }
+        &:nth-of-type(4) {
+          width: 15%;
+          input {
+            background: #fff;
+            color: #eaa79e;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+    }
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      textarea {
+        width: 100%;
+        background: #f5f6f7;
+        padding: 1rem;
+      }
+      @include button-pink {
+        align-self: flex-end;
+      }
+    }
+  }
+}
