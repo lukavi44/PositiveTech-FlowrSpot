@@ -8,7 +8,7 @@ const baseUrl = 'https://flowrspot-api.herokuapp.com/api/v1/users';
 const httpOptions = {
   headers: new HttpHeaders({
     Authorization: `Bearer ${
-      JSON.parse(localStorage.getItem('auth_data') || '{}')?.auth_token || ''
+      JSON.parse(localStorage.getItem('auth_data') || '{}').auth_token || ''
     }`,
   }),
 };
